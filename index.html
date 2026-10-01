@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每一声呼唤，都有回应 · HDChina 群纪念</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700;900&family=Fraunces:opsz,wght@9..144,300;9..144,600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night-0:#070b14;
+  --night-1:#0c1220;
+  --night-2:#131b2e;
+  --gold:#d9a441;
+  --gold-soft:#e8c47c;
+  --gold-dim:rgba(217,164,65,.35);
+  --cyan:#8fb8cc;
+  --ink:#ece5d8;
+  --ink-dim:#a9a294;
+  --ink-faint:#6d6a60;
+  --serif:"Noto Serif SC","Songti SC",serif;
+  --display:"Fraunces","Noto Serif SC",serif;
+  --mono:"IBM Plex Mono","Consolas",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(1100px 700px at 50% -12%, #17233d 0%, transparent 62%),
+    radial-gradient(900px 600px at 88% 112%, #101a2e 0%, transparent 55%),
+    linear-gradient(180deg, var(--night-0) 0%, var(--night-1) 55%, var(--night-0) 100%);
+  color:var(--ink);
+  font-family:var(--serif);
+  min-height:100vh;
+  overflow-x:hidden;
+  letter-spacing:.02em;
+}
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+main{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:0 28px 40px}
+
+/* ————— 载入浮现 ————— */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.2,.7,.3,1),transform 1.1s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+
+/* ————— 徽章 ————— */
+header{padding:76px 0 30px;text-align:center}
+.seal{width:150px;height:150px;margin:0 auto 40px;position:relative;filter:drop-shadow(0 0 22px rgba(217,164,65,.22))}
+.seal svg{width:100%;height:100%;animation:sealIn 1.6s cubic-bezier(.2,.8,.25,1) both}
+@keyframes sealIn{from{opacity:0;transform:scale(.72) rotate(-14deg)}to{opacity:1;transform:none}}
+.seal .ring-rot{transform-origin:80px 80px;animation:slowSpin 70s linear infinite}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.42em;text-indent:.42em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:26px;
+}
+h1{
+  font-family:var(--serif);font-weight:900;font-size:clamp(34px,6.4vw,62px);
+  line-height:1.28;letter-spacing:.06em;
+  background:linear-gradient(160deg,#f4ead6 30%,var(--gold-soft) 78%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none;
+}
+.sub{
+  margin:30px auto 0;max-width:560px;color:var(--ink-dim);
+  font-weight:300;font-size:15px;line-height:2.15;text-align:justify;text-align-last:center;
+}
+.sub em{font-style:normal;color:var(--gold-soft);font-weight:500}
+.hr-star{display:flex;align-items:center;gap:18px;margin:64px 0 0;color:var(--gold)}
+.hr-star::before,.hr-star::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.hr-star::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+.hr-star span{font-size:13px;letter-spacing:.5em;text-indent:.5em}
+
+/* ————— 大数字 ————— */
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:58px 0 8px}
+.num-card{
+  border:1px solid rgba(217,164,65,.16);border-radius:4px;
+  background:linear-gradient(180deg,rgba(23,32,54,.55),rgba(12,18,32,.35));
+  padding:34px 10px 28px;position:relative;backdrop-filter:blur(3px);
+  transition:transform .5s ease,border-color .5s ease;
+}
+.num-card:hover{transform:translateY(-5px);border-color:rgba(217,164,65,.42)}
+.num-card::before{content:"";position:absolute;top:-1px;left:24px;right:24px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.num-val{
+  font-family:var(--mono);font-weight:300;font-size:clamp(30px,5.2vw,46px);
+  color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;
+}
+.num-val b{font-weight:600;color:var(--gold-soft)}
+.num-lab{margin-top:14px;font-size:13px;color:var(--ink-dim);letter-spacing:.28em;text-indent:.28em}
+.num-note{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-top:8px;letter-spacing:.12em}
+
+/* ————— 首末呼唤 ————— */
+section{margin-top:96px}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.4em;text-indent:.4em;color:var(--gold);text-transform:uppercase}
+.sec-head h2{font-weight:700;font-size:clamp(21px,3.4vw,27px);letter-spacing:.14em;margin-top:14px}
+.calls{display:grid;grid-template-columns:1fr 54px 1fr;align-items:stretch;gap:0}
+.call-card{
+  border:1px solid rgba(143,184,204,.14);border-radius:4px;padding:30px 26px;
+  background:linear-gradient(180deg,rgba(19,27,46,.5),rgba(10,15,26,.3));
+  position:relative;overflow:hidden;transition:border-color .5s ease,transform .5s ease;
+}
+.call-card:hover{border-color:rgba(217,164,65,.4);transform:translateY(-4px)}
+.call-card .tag{font-size:12px;letter-spacing:.34em;text-indent:.34em;color:var(--cyan);margin-bottom:20px}
+.call-card .cmd{
+  font-family:var(--mono);font-size:clamp(14px,2.2vw,17px);color:var(--ink);
+  padding:13px 15px;border-left:2px solid var(--gold);background:rgba(217,164,65,.06);
+  border-radius:0 3px 3px 0;word-break:break-all;
+}
+.call-card .cmd .at{color:var(--gold-soft)}
+.call-card .when{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:18px;letter-spacing:.1em}
+.call-card .say{font-size:13px;color:var(--ink-dim);margin-top:14px;line-height:1.9;font-weight:300}
+.calls .link{display:flex;align-items:center;justify-content:center;position:relative}
+.calls .link::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent)}
+.calls .link span{
+  width:9px;height:9px;transform:rotate(45deg);background:var(--night-0);
+  border:1px solid var(--gold);z-index:1;box-shadow:0 0 12px rgba(217,164,65,.5);
+}
+
+/* ————— bot 榜单 ————— */
+.bot-list{display:flex;flex-direction:column;gap:13px}
+.bot-row{display:grid;grid-template-columns:26px 1fr 96px;align-items:center;gap:14px}
+.bot-rank{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:right}
+.bot-row.top3 .bot-rank{color:var(--gold)}
+.bot-main{min-width:0}
+.bot-name{
+  font-family:var(--mono);font-size:13px;color:var(--ink-dim);margin-bottom:7px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.bot-row.top3 .bot-name{color:var(--ink)}
+.bot-name .medal{font-size:11px;margin-right:7px}
+.bot-bar-wrap{height:5px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
+.bot-bar{
+  height:100%;border-radius:99px;width:0;
+  background:linear-gradient(90deg,#8a6a2a,var(--gold) 60%,var(--gold-soft));
+  box-shadow:0 0 10px rgba(217,164,65,.28);
+  transition:width 1.4s cubic-bezier(.25,.8,.25,1);
+}
+.bot-row:not(.top3) .bot-bar{background:linear-gradient(90deg,#3d5566,var(--cyan) 70%,#b9d6e2);box-shadow:none}
+.bot-count{font-family:var(--mono);font-size:15px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.bot-row.top3 .bot-count{color:var(--gold-soft)}
+.bot-row:not(.top3) .bot-count{color:var(--cyan);font-weight:300}
+.bot-count small{font-size:10px;color:var(--ink-faint);font-weight:300;margin-left:4px}
+
+/* ————— 年度 ————— */
+.years{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end;height:230px}
+.year-col{display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:12px}
+.year-val{font-family:var(--mono);font-size:14px;color:var(--gold-soft);text-align:center;font-variant-numeric:tabular-nums}
+.year-bar{
+  width:100%;border-radius:3px 3px 0 0;height:0%;
+  background:linear-gradient(180deg,rgba(217,164,65,.85),rgba(217,164,65,.12));
+  border-top:1px solid var(--gold);
+  transition:height 1.5s cubic-bezier(.25,.8,.25,1);
+  position:relative;
+}
+.year-bar::after{content:"";position:absolute;left:15%;right:15%;top:0;height:100%;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 40%)}
+.year-lab{font-family:var(--mono);font-size:12px;color:var(--ink-dim);text-align:center;letter-spacing:.2em}
+.year-note{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:26px;letter-spacing:.1em}
+
+/* ————— 呼唤者榜 ————— */
+.callers{border:1px solid rgba(217,164,65,.14);border-radius:4px;overflow:hidden}
+.crow{
+  display:grid;grid-template-columns:44px 1fr 84px;align-items:center;gap:12px;
+  padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .3s ease;
+}
+.crow:last-child{border-bottom:none}
+.crow:hover{background:rgba(217,164,65,.05)}
+.crow .r{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.crow.first .r{color:var(--gold)}
+.crow .n{font-size:14px;color:var(--ink-dim);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crow.first .n{color:var(--gold-soft);font-weight:500}
+.crow.first{background:linear-gradient(90deg,rgba(217,164,65,.1),transparent 55%)}
+.crow .c{font-family:var(--mono);font-size:14px;color:var(--cyan);text-align:right;font-variant-numeric:tabular-nums}
+.crow.first .c{color:var(--gold-soft);font-weight:600}
+.crow .c small{font-size:10px;color:var(--ink-faint)}
+
+/* ————— 落款 ————— */
+footer{margin-top:120px;text-align:center;padding-bottom:30px}
+.foot-quote{
+  font-size:clamp(17px,2.8vw,21px);font-weight:300;letter-spacing:.16em;line-height:2.2;
+  color:var(--ink);
+}
+.foot-quote b{font-weight:700;color:var(--gold-soft)}
+.foot-sub{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:30px;letter-spacing:.24em;line-height:2.4}
+.foot-sub i{font-style:normal;color:var(--gold)}
+
+@media (max-width:640px){
+  header{padding-top:58px}
+  .numbers{grid-template-columns:1fr 1fr}
+  .num-card:first-child{grid-column:1 / -1}
+  .calls{grid-template-columns:1fr}
+  .calls .link{height:44px}
+  .calls .link::before{top:50%;bottom:auto;left:50%;right:auto;height:100%;width:1px;
+    background:linear-gradient(180deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent)}
+  .bot-row{grid-template-columns:20px 1fr 76px}
+  .years{height:180px;gap:10px}
+  .crow{grid-template-columns:34px 1fr 70px;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="grain"></div>
+<main>
+
+  <header>
+    <div class="seal reveal on">
+      <svg viewBox="0 0 160 160" fill="none">
+        <defs>
+          <path id="ringPath" d="M80,80 m-64,0 a64,64 0 1,1 128,0 a64,64 0 1,1 -128,0"/>
+        </defs>
+        <circle cx="80" cy="80" r="78" stroke="#d9a441" stroke-opacity=".55" stroke-width="1"/>
+        <circle cx="80" cy="80" r="72" stroke="#d9a441" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 5"/>
+        <circle cx="80" cy="80" r="56" stroke="#d9a441" stroke-opacity=".7" stroke-width="1.2"/>
+        <circle cx="80" cy="80" r="53" stroke="#8fb8cc" stroke-opacity=".25" stroke-width="1"/>
+        <g class="ring-rot">
+          <text font-family="IBM Plex Mono,monospace" font-size="7.2" letter-spacing="2.6" fill="#d9a441" fill-opacity=".85">
+            <textPath href="#ringPath">HDCHINA OFFICIAL GROUP ✦ TELEGRAM ✦ 2023 — 2026 ✦ IN MEMORIAM ✦</textPath>
+          </text>
+        </g>
+        <text x="80" y="76" text-anchor="middle" font-family="Fraunces,serif" font-size="26" font-weight="600" fill="#e8c47c" letter-spacing="3">HDC</text>
+        <text x="80" y="95" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="10.5" fill="#8fb8cc" letter-spacing="5" text-indent="5">呼唤纪念</text>
+        <path d="M80 104 l3.5 6.5 -3.5 6.5 -3.5 -6.5 z" fill="#d9a441"/>
+      </svg>
+    </div>
+    <div class="eyebrow reveal">HDChina Official Group · Telegram</div>
+    <h1 class="reveal">每一声呼唤<br>都有回应</h1>
+    <p class="sub reveal">
+      从 <em>2023 年 11 月 29 日</em> 到 <em>2026 年 10 月 1 日</em>，在站点沉睡的一千多个日夜里，
+      群里的灯始终亮着——<em>2,854 位同伴</em>，向守夜的机器人发出了<em> 14,829 次呼唤</em>。
+      每一次验证、每一次签到、每一次查询，都是一句"我还在"。
+    </p>
+    <div class="hr-star reveal"><span>✦</span></div>
+  </header>
+
+  <div class="numbers reveal">
+    <div class="num-card">
+      <div class="num-val"><b data-count="14829">0</b></div>
+      <div class="num-lab">次呼唤</div>
+      <div class="num-note">CALLS MADE</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val"><b data-count="2854">0</b></div>
+      <div class="num-lab">位同伴</div>
+      <div class="num-note">UNIQUE CALLERS</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val"><b data-count="1037">0</b></div>
+      <div class="num-lab">个日夜</div>
+      <div class="num-note">DAYS TOGETHER</div>
+    </div>
+  </div>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="k">The First &amp; The Latest</div>
+      <h2>第一声，与最近一声</h2>
+    </div>
+    <div class="calls">
+      <div class="call-card">
+        <div class="tag">故事的开端 · 2023</div>
+        <div class="cmd">/verify<span class="at">@hdchina_group_bot</span></div>
+        <div class="when">2023-11-29 &nbsp;07:21:50</div>
+        <div class="say">一切从一次入群验证开始。彼时谁也不知道，这句命令之后是两千多个日夜的守候。</div>
+      </div>
+      <div class="link"><span></span></div>
+      <div class="call-card">
+        <div class="tag">灯火未熄 · 今天</div>
+        <div class="cmd">/start<span class="at">@hdchina_mit_bot</span></div>
+        <div class="when">2026-10-01 &nbsp;10:44:50</div>
+        <div class="say">导出这份记录的当天，群里仍在呼唤。故事没有句号，只有逗号——因为我们要回来了。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="k">Hall of Bots</div>
+      <h2>被呼唤的守夜人</h2>
+    </div>
+    <div class="bot-list" id="botList"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="k">Year by Year</div>
+      <h2>年年有声</h2>
+    </div>
+    <div class="years" id="yearChart"></div>
+    <div class="year-note">* 2026 年统计至 10 月 1 日 · 数据来源：Telegram 群聊完整导出</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="k">Top Callers</div>
+      <h2>呼唤最多的人</h2>
+    </div>
+    <div class="callers" id="callerBoard"></div>
+  </section>
+
+  <footer class="reveal">
+    <div class="hr-star" style="margin-bottom:56px"><span>✦</span></div>
+    <p class="foot-quote">「种子还在，<br>就总有<b>做种的人</b>。」</p>
+    <div class="foot-sub">
+      HDCHINA 回归纪念<br>
+      <i>数据铭刻于 2026.10.01 · 由 21,648 条群消息中打捞</i>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+/* ————— 数据 ————— */
+const BOT_STATS = [
+  {name:"hdchina_mit_bot",     calls:7559},
+  {name:"hdchina_group_bot",   calls:6487},
+  {name:"hdchina_op_bot",      calls:428},
+  {name:"hdchina_group_mit",   calls:298},
+  {name:"hdchina_mice_bot",    calls:38},
+  {name:"hdwing_group_bot",    calls:18},
+  {name:"hdchina_mushroom_bot",calls:1},
+];
+const YEARS = [
+  {y:2023, n:3523},{y:2024, n:7116},{y:2025, n:2731},{y:2026, n:1459},
+];
+const CALLERS = [
+  {name:"Optimus Primal",calls:1986},{name:"Alex Wang",calls:417},
+  {name:"Xue Ted",calls:266},{name:"user6194973218",calls:154},
+  {name:"Jian Qi",calls:151},{name:"Lacuisinc",calls:147},
+  {name:"AnMuzhi",calls:137},{name:"Forza Azzurri",calls:136},
+  {name:"MIO",calls:135},{name:"zlei 333",calls:101},
+];
+const TOTAL = 14829;
+const fmt = n => n.toLocaleString("en-US");
+
+/* ————— bot 榜单 ————— */
+const medals = ["🥇","🥈","🥉"];
+const maxBot = BOT_STATS[0].calls;
+document.getElementById("botList").innerHTML = BOT_STATS.map((b,i)=>{
+  const top3 = i < 3;
+  const w = Math.max(b.calls / maxBot * 100, b.calls > 0 ? 0.9 : 0);
+  return `<div class="bot-row${top3?" top3":""}">
+    <div class="bot-rank">${String(i+1).padStart(2,"0")}</div>
+    <div class="bot-main">
+      <div class="bot-name">${top3?`<span class="medal">${medals[i]}</span>`:""}@${b.name}</div>
+      <div class="bot-bar-wrap"><div class="bot-bar" data-w="${w}"></div></div>
+    </div>
+    <div class="bot-count">${fmt(b.calls)}<small>次</small></div>
+  </div>`;
+}).join("");
+
+/* ————— 年度柱 ————— */
+const maxYear = Math.max(...YEARS.map(y=>y.n));
+document.getElementById("yearChart").innerHTML = YEARS.map(y=>{
+  const h = Math.max(y.n / maxYear * 100, 6);
+  return `<div class="year-col">
+    <div class="year-val">${fmt(y.n)}</div>
+    <div class="year-bar" data-h="${h}"></div>
+    <div class="year-lab">${y.y}</div>
+  </div>`;
+}).join("");
+
+/* ————— 呼唤者榜 ————— */
+document.getElementById("callerBoard").innerHTML = CALLERS.map((c,i)=>`
+  <div class="crow${i===0?" first":""}">
+    <div class="r">${i===0?"★":String(i+1).padStart(2,"0")}</div>
+    <div class="n">${c.name}</div>
+    <div class="c">${fmt(c.calls)}<small> 次</small></div>
+  </div>`).join("");
+
+/* ————— 滚动浮现 + 计数 + 图形生长 ————— */
+const ease = t => 1 - Math.pow(1-t, 3);
+function countUp(el, target, dur){
+  const t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0) / dur, 1);
+    el.textContent = fmt(Math.round(target * ease(p)));
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    el.classList.add("on");
+    el.querySelectorAll("[data-count]").forEach(b => countUp(b, +b.dataset.count, 1900));
+    el.querySelectorAll(".bot-bar").forEach((bar,i) =>
+      setTimeout(() => bar.style.width = bar.dataset.w + "%", 120 + i*90));
+    el.querySelectorAll(".year-bar").forEach((bar,i) =>
+      setTimeout(() => bar.style.height = bar.dataset.h + "%", 150 + i*110));
+    io.unobserve(el);
+  });
+},{threshold:.18});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ————— 夜空：星与流星 ————— */
+const cv = document.getElementById("sky"), cx = cv.getContext("2d");
+let W, H, stars = [], meteor = null, dpr = Math.min(devicePixelRatio || 1, 2);
+function resize(){
+  W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  cv.style.width = W + "px"; cv.style.height = H + "px";
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const n = Math.min(130, Math.round(W * H / 12000));
+  stars = Array.from({length:n}, () => ({
+    x: Math.random()*W, y: Math.random()*H,
+    r: Math.random()*1.15 + .25,
+    p: Math.random()*Math.PI*2,
+    s: .4 + Math.random()*1.2,
+    warm: Math.random() < .3,
+  }));
+}
+resize();
+addEventListener("resize", resize);
+
+let nextMeteor = 2400;
+function draw(now){
+  cx.clearRect(0,0,W,H);
+  for(const st of stars){
+    const tw = .45 + .55 * Math.sin(st.p + now*.001*st.s);
+    cx.globalAlpha = tw * .85;
+    cx.fillStyle = st.warm ? "#e8c47c" : "#cfe0ec";
+    cx.beginPath();
+    cx.arc(st.x, st.y, st.r, 0, 7);
+    cx.fill();
+  }
+  cx.globalAlpha = 1;
+  if(!meteor && now > nextMeteor){
+    meteor = {x: W*(.25+Math.random()*.5), y: -20, vx: -(2.4+Math.random()*1.6), vy: 2.2+Math.random()*1.2, life: 1};
+    nextMeteor = now + 7000 + Math.random()*9000;
+  }
+  if(meteor){
+    meteor.x += meteor.vx; meteor.y += meteor.vy; meteor.life -= .008;
+    const tail = 26;
+    const g = cx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.vx*tail, meteor.y - meteor.vy*tail);
+    g.addColorStop(0, `rgba(232,196,124,${Math.max(meteor.life,0)*.9})`);
+    g.addColorStop(1, "rgba(232,196,124,0)");
+    cx.strokeStyle = g; cx.lineWidth = 1.2;
+    cx.beginPath();
+    cx.moveTo(meteor.x, meteor.y);
+    cx.lineTo(meteor.x - meteor.vx*tail, meteor.y - meteor.vy*tail);
+    cx.stroke();
+    if(meteor.life <= 0 || meteor.x < -60 || meteor.y > H+60) meteor = null;
+  }
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+  "group_name": "HDChina Official Group",
+  "total_messages_in_export": 21648,
+  "bots": {
+    "hdchina_mit_bot": {
+      "calls": 7559,
+      "by_year": {
+        "2023": 0,
+        "2024": 4057,
+        "2025": 2388,
+        "2026": 1114
+      }
+    },
+    "hdchina_group_bot": {
+      "calls": 6487,
+      "by_year": {
+        "2023": 3523,
+        "2024": 2453,
+        "2025": 316,
+        "2026": 195
+      }
+    },
+    "hdchina_mice_bot": {
+      "calls": 38,
+      "by_year": {
+        "2023": 0,
+        "2024": 38,
+        "2025": 0,
+        "2026": 0
+      }
+    },
+    "hdchina_mushroom_bot": {
+      "calls": 1,
+      "by_year": {
+        "2023": 0,
+        "2024": 1,
+        "2025": 0,
+        "2026": 0
+      }
+    },
+    "hdchina_op_bot": {
+      "calls": 428,
+      "by_year": {
+        "2023": 0,
+        "2024": 253,
+        "2025": 25,
+        "2026": 150
+      }
+    },
+    "hdchina_group_mit": {
+      "calls": 298,
+      "by_year": {
+        "2023": 0,
+        "2024": 296,
+        "2025": 2,
+        "2026": 0
+      }
+    },
+    "hdwing_group_bot": {
+      "calls": 18,
+      "by_year": {
+        "2023": 0,
+        "2024": 18,
+        "2025": 0,
+        "2026": 0
+      }
+    }
+  },
+  "total_bot_calls": 14829,
+  "messages_containing_call": 14829,
+  "unique_callers": 2854,
+  "top_callers": [
+    {
+      "name": "Optimus Primal",
+      "calls": 1986
+    },
+    {
+      "name": "Alex Wang",
+      "calls": 417
+    },
+    {
+      "name": "Xue Ted",
+      "calls": 266
+    },
+    {
+      "name": "user6194973218",
+      "calls": 154
+    },
+    {
+      "name": "Jian Qi",
+      "calls": 151
+    },
+    {
+      "name": "Lacuisinc",
+      "calls": 147
+    },
+    {
+      "name": "AnMuzhi",
+      "calls": 137
+    },
+    {
+      "name": "Forza Azzurri",
+      "calls": 136
+    },
+    {
+      "name": "MIO",
+      "calls": 135
+    },
+    {
+      "name": "zlei 333",
+      "calls": 101
+    }
+  ],
+  "time_span": {
+    "first_call": "2023-11-29T07:21:50",
+    "last_call": "2026-10-01T10:44:50",
+    "days": 1037
+  },
+  "first_call_text": "/verify@hdchina_group_bot",
+  "last_call_text": "/start@hdchina_mit_bot",
+  "meta": {
+    "excluded_bot_self_messages": 0,
+    "entity_cross_check_total": {
+      "hdchina_mit_bot": 7565,
+      "hdchina_group_bot": 6501,
+      "hdchina_mice_bot": 38,
+      "hdchina_mushroom_bot": 1,
+      "hdchina_op_bot": 428,
+      "hdchina_group_mit": 298,
+      "hdwing_group_bot": 18
+    }
+  }
+}
