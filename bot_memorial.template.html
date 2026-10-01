@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>守夜人名册 · HDChina 回归纪念</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<style>
+:root{
+  --paper:#F2ECDF;
+  --paper-deep:#EAE1CC;
+  --paper-card:#EFE7D6;
+  --ink:#1C1814;
+  --ink-soft:#57503F;
+  --ink-faint:#8F8674;
+  --line:rgba(28,24,20,.28);
+  --line-faint:rgba(28,24,20,.14);
+  --bronze:#A8863F;
+  --bronze-deep:#8a6d33;
+  --seal:#9E2B25;
+  --serif:"Noto Serif SC","Songti SC",serif;
+  --kai:"LXGW WenKai","Noto Serif SC",serif;
+  --display:"Playfair Display","Noto Serif SC",serif;
+  --mono:"IBM Plex Mono","Consolas",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  min-height:100vh;
+  overflow-x:hidden;
+  letter-spacing:.03em;
+  position:relative;
+}
+/* 纸纤维 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:50;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='7'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E");
+  opacity:.055;mix-blend-mode:multiply;
+}
+/* 四角 vignette */
+body::after{
+  content:"";position:fixed;inset:0;z-index:49;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 42%, transparent 58%, rgba(74,58,36,.14) 100%);
+}
+/* 证书外框 */
+.sheet{
+  max-width:920px;margin:0 auto;padding:34px 26px 60px;position:relative;z-index:2;
+}
+.sheet::before{
+  content:"";position:absolute;inset:16px;border:1px solid rgba(168,134,63,.5);
+  pointer-events:none;
+}
+.sheet::after{
+  content:"";position:absolute;inset:22px;border:1px solid rgba(168,134,63,.22);
+  pointer-events:none;
+}
+main{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 12px}
+
+/* 凹版铅字压痕 */
+.letterpress{text-shadow:0 1px 0 rgba(255,255,255,.55)}
+
+/* ————— 载入 ————— */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .95s cubic-bezier(.2,.7,.3,1),transform .95s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+
+/* ————— ① 封套 ————— */
+header{padding:64px 0 26px;text-align:center}
+.seal-wrap{width:190px;height:190px;margin:0 auto 38px;position:relative}
+.seal-wrap svg{width:100%;height:100%;transform:rotate(-3deg);filter:drop-shadow(0 1px 0 rgba(255,255,255,.5))}
+.seal-wrap .ring-rot{transform-origin:95px 95px;animation:slowSpin 90s linear infinite}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.5em;text-indent:.5em;color:var(--bronze);margin-bottom:24px;text-transform:uppercase}
+h1{
+  font-weight:900;font-size:clamp(40px,8vw,68px);letter-spacing:.14em;line-height:1.2;
+  color:var(--ink);
+}
+.h1-sub{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.36em;text-indent:.36em;
+  color:var(--ink-faint);margin-top:20px;text-transform:uppercase;
+}
+.edition{
+  margin:30px auto 0;display:inline-block;padding:9px 26px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--ink-soft);
+}
+.edition b{color:var(--seal);font-weight:500}
+
+/* ————— 分隔 ————— */
+.rule{display:flex;align-items:center;gap:16px;margin:74px 0 0;color:var(--bronze)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--line-faint)}
+.rule span{font-size:11px;letter-spacing:.4em;text-indent:.4em}
+
+/* ————— ② 卷首 ————— */
+.foreword{
+  display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;
+  padding-top:64px;
+}
+.vertical{
+  writing-mode:vertical-rl;font-size:clamp(19px,3vw,24px);font-weight:500;
+  letter-spacing:.42em;line-height:2.3;color:var(--ink);height:400px;
+  border-left:1px solid var(--line-faint);padding-left:26px;margin-left:auto;
+}
+.foreword-body{padding-top:8px}
+.ka{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-faint);line-height:2.2;word-break:break-all}
+.ka b{color:var(--bronze);font-weight:500}
+.type-block{display:flex;flex-wrap:wrap;gap:4px;margin-top:30px}
+.type-block .ch{
+  min-width:34px;height:44px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);background:var(--paper-card);
+  font-family:var(--mono);font-size:15px;color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 1px 0 rgba(255,255,255,.4);
+  transition:background .3s ease,color .3s ease;
+}
+.type-block .ch:hover{background:var(--ink);color:var(--paper)}
+.type-block .ch.red{color:var(--seal);border-color:rgba(158,43,37,.5)}
+.type-block .ch.red:hover{background:var(--seal);color:var(--paper)}
+.type-meta{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:14px;letter-spacing:.14em}
+.type-meta b{color:var(--ink-soft);font-weight:500}
+.rebirth{
+  margin-top:38px;padding:20px 22px;border-left:2px solid var(--seal);
+  background:linear-gradient(90deg,rgba(158,43,37,.05),transparent 70%);
+}
+.rebirth p{font-family:var(--kai);font-size:14.5px;line-height:2.1;color:var(--ink-soft)}
+.rebirth .cmd{font-family:var(--mono);color:var(--seal);font-size:13px}
+.rebirth .lab{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--seal);margin-bottom:10px}
+
+/* ————— ③ 数字栏 ————— */
+section{padding-top:88px}
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-head .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.42em;text-indent:.42em;color:var(--bronze);text-transform:uppercase}
+.sec-head h2{font-weight:700;font-size:clamp(21px,3.4vw,27px);letter-spacing:.2em;margin-top:14px}
+.sec-head .s{font-size:13px;color:var(--ink-faint);margin-top:14px;font-weight:300;letter-spacing:.1em}
+.figures{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+  margin-top:8px;
+}
+.fig{padding:34px 8px 28px;text-align:center;position:relative}
+.fig + .fig{border-left:1px solid var(--line)}
+.fig-val{
+  font-family:var(--display);font-weight:700;font-size:clamp(34px,5.6vw,52px);
+  background:linear-gradient(120deg,#8a6d33 0%,#c9a961 30%,#9c7c3a 55%,#d9bc7c 80%,#8a6d33 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-variant-numeric:tabular-nums;line-height:1.05;
+}
+.fig-lab{margin-top:16px;font-size:13.5px;color:var(--ink-soft);letter-spacing:.34em;text-indent:.34em}
+.fig-note{font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:.16em}
+.dial-row{display:flex;justify-content:center;margin-top:56px}
+.dial{width:300px;height:300px;position:relative}
+.dial svg{width:100%;height:100%}
+.dial-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+}
+.dial-center .n{font-family:var(--display);font-weight:700;font-size:56px;color:var(--ink);line-height:1}
+.dial-center .t{font-size:12px;letter-spacing:.5em;text-indent:.5em;color:var(--ink-faint)}
+.dial-cap{margin-top:30px;text-align:center;font-family:var(--kai);font-size:13.5px;color:var(--ink-faint);letter-spacing:.12em}
+
+/* ————— ④ 点名簿 ————— */
+.rollbook{
+  border:1px solid var(--line);background:var(--paper-card);
+  padding:30px 26px 24px;position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset;
+}
+.rollbook .corner{position:absolute;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);letter-spacing:.18em}
+.rollbook .corner.tl{top:10px;left:12px}
+.rollbook .corner.br{bottom:10px;right:12px}
+.heat{
+  display:grid;grid-template-rows:repeat(31,1fr);grid-auto-flow:column;
+  gap:3px;justify-content:center;
+  margin-top:26px;
+}
+.heat .cell{
+  width:var(--cs,13px);height:var(--cs,13px);border-radius:50%;
+  background:rgba(28,24,20,.055);
+  opacity:0;transform:scale(.4);
+  transition:opacity .5s ease var(--d,0s),transform .5s ease var(--d,0s),background .3s ease;
+}
+.rollbook.on .cell{opacity:1;transform:scale(1)}
+.heat .cell.h1{background:rgba(158,43,37,.28)}
+.heat .cell.h2{background:rgba(158,43,37,.52)}
+.heat .cell.h3{background:rgba(158,43,37,.75)}
+.heat .cell.h4{background:rgba(158,43,37,.94)}
+.heat .cell.void{background:transparent}
+.heat-months{
+  display:grid;grid-auto-flow:column;gap:3px;justify-content:center;
+  margin-top:10px;
+}
+.heat-months span{
+  width:var(--cs,13px);text-align:center;font-family:var(--mono);
+  font-size:8px;color:var(--ink-faint);transform:scale(.86);
+}
+.heat-months span.yr{color:var(--bronze);font-weight:500}
+.legend{
+  display:flex;justify-content:center;align-items:center;gap:8px;
+  margin-top:22px;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);letter-spacing:.14em;
+}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.gauges{
+  display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;
+  border-top:1px solid var(--line-faint);padding-top:22px;gap:10px;
+}
+.gauge{text-align:center}
+.gauge .v{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+.gauge .v em{font-style:normal;color:var(--seal)}
+.gauge .k{font-family:var(--mono);font-size:9px;letter-spacing:.26em;color:var(--ink-faint);margin-top:8px}
+
+/* ————— ⑤ 守夜人名录 ————— */
+.registry{position:relative}
+.registry-gold{
+  text-align:center;font-size:15px;letter-spacing:.3em;text-indent:.3em;
+  background:linear-gradient(120deg,#8a6d33,#c9a961 40%,#9c7c3a 70%,#d9bc7c);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:500;margin-bottom:34px;
+}
+.elder-stamp{
+  position:absolute;top:-8px;right:0;transform:rotate(8deg);
+  width:74px;height:74px;opacity:.9;
+}
+.elder-stamp svg{width:100%;height:100%}
+.walls{
+  column-count:4;column-gap:34px;column-rule:1px solid var(--line-faint);
+  font-size:12.5px;line-height:2.05;
+}
+.walls .w{
+  break-inside:avoid;color:var(--ink-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  opacity:0;transform:translateX(-6px);
+  transition:opacity .45s ease,transform .45s ease;
+}
+.registry.on .walls .w{opacity:1;transform:none}
+.walls .w b{font-weight:500;color:var(--ink)}
+.walls .w span{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-left:6px}
+.appendix{
+  margin-top:36px;padding-top:20px;border-top:1px solid var(--line-faint);
+  font-family:var(--kai);font-size:13px;color:var(--ink-faint);line-height:2;letter-spacing:.05em;
+}
+.appendix b{color:var(--ink-soft);font-weight:500}
+
+/* ————— ⑥ 七枚铅封 ————— */
+.leads{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,3.4vw,34px);flex-wrap:wrap;margin-top:10px}
+.lead{display:flex;flex-direction:column;align-items:center;gap:14px}
+.lead-stamp{
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--ink);position:relative;
+  box-shadow:inset 0 0 0 3px var(--paper-card),inset 0 0 0 4px var(--line);
+  background:var(--paper-card);
+  font-family:var(--mono);font-weight:500;color:var(--ink);letter-spacing:.06em;
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  transition:transform .4s ease;
+}
+.lead:hover .lead-stamp{transform:translateY(-4px) rotate(-2deg)}
+.lead-stamp::after{
+  content:"";position:absolute;inset:5px;border-radius:50%;
+  border:1px dashed var(--line);
+}
+.lead.big .lead-stamp{color:var(--seal);border-color:var(--seal);box-shadow:inset 0 0 0 3px var(--paper-card),inset 0 0 0 4px rgba(158,43,37,.4)}
+.lead-name{font-family:var(--mono);font-size:10px;color:var(--ink-faint);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lead-cnt{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:.06em}
+.leads-cap{text-align:center;margin-top:40px;font-family:var(--kai);font-size:13.5px;color:var(--ink-faint)}
+
+/* ————— ⑦ 票根落款 ————— */
+footer{margin-top:110px}
+.ticket{
+  position:relative;border:1.5px solid var(--ink);background:var(--paper-card);
+  display:grid;grid-template-columns:1fr 236px;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset;
+}
+.ticket::before{ /* 撕线 */
+  content:"";position:absolute;top:0;bottom:0;left:calc(100% - 236px);
+  border-left:1.5px dashed var(--line);
+}
+.tkc-l{padding:46px 44px 42px 40px}
+.tkc-l .org{font-family:var(--kai);font-size:14px;color:var(--ink-soft);letter-spacing:.3em;margin-bottom:26px}
+.tkc-l .final{
+  font-size:clamp(22px,3.6vw,30px);font-weight:900;letter-spacing:.12em;line-height:1.9;
+}
+.tkc-l .final b{
+  background:linear-gradient(120deg,#8a6d33,#c9a961 40%,#9c7c3a 70%,#d9bc7c);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tkc-l .sig{margin-top:34px;font-family:var(--kai);font-size:13px;color:var(--ink-faint);letter-spacing:.1em}
+.tkc-r{
+  padding:36px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  text-align:center;
+}
+.tkc-r .no{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.14em}
+.tkc-r .no b{color:var(--seal);font-weight:500;font-size:14px}
+.stamp{
+  width:128px;height:128px;position:relative;
+  opacity:0;transform:scale(2.1) rotate(-30deg);
+  transition:opacity .55s cubic-bezier(.3,1.1,.4,1),transform .55s cubic-bezier(.34,1.45,.55,1);
+}
+.stamp.on{opacity:1;transform:scale(1) rotate(-7deg)}
+.stamp svg{width:100%;height:100%}
+.tkc-r .stamptxt{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--seal)}
+.colophon{
+  margin-top:44px;text-align:center;font-family:var(--mono);
+  font-size:10px;color:var(--ink-faint);letter-spacing:.2em;line-height:2.6;
+}
+.colophon .row3{color:var(--ink-soft)}
+.colophon i{font-style:normal;color:var(--bronze)}
+.colophon em{font-style:normal;color:var(--seal)}
+
+@media (max-width:680px){
+  .foreword{grid-template-columns:1fr}
+  .vertical{height:300px;margin:0 auto;padding-left:20px}
+  .figures{grid-template-columns:1fr}
+  .fig + .fig{border-left:none;border-top:1px solid var(--line)}
+  :root{--cs:7px}
+  .rollbook{overflow-x:auto;padding:24px 14px 20px}
+  .heat,.heat-months{gap:2px;width:max-content;margin-inline:auto}
+  .walls{column-count:2;column-gap:22px}
+  .ticket{grid-template-columns:1fr}
+  .ticket::before{border-left:none;border-top:1.5px dashed var(--line);left:0;right:0;top:auto;bottom:224px;position:absolute}
+  .gauges{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .tkc-l{padding:34px 26px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+<main>
+
+  <!-- ① 封套 -->
+  <header>
+    <div class="seal-wrap reveal on">
+      <svg viewBox="0 0 190 190" fill="none">
+        <defs><path id="rp" d="M95,95 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"/></defs>
+        <circle cx="95" cy="95" r="93" stroke="#A8863F" stroke-opacity=".8" stroke-width="1.6"/>
+        <circle cx="95" cy="95" r="88" stroke="#A8863F" stroke-opacity=".35" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="95" cy="95" r="66" stroke="#1C1814" stroke-opacity=".65" stroke-width="1.4"/>
+        <circle cx="95" cy="95" r="62" stroke="#1C1814" stroke-opacity=".22" stroke-width="1"/>
+        <g class="ring-rot">
+          <text font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="3.4" fill="#57503F">
+            <textPath href="#rp">HDCHINA OFFICIAL GROUP · NIGHT WATCH REGISTRY · MMXXIII — MMXXVI ·</textPath>
+          </text>
+        </g>
+        <text x="95" y="93" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="34" fill="#1C1814" letter-spacing="8">守夜</text>
+        <text x="95" y="122" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8F8674" letter-spacing="3">EST. 2023.11.29</text>
+        <path d="M95 130 l3 5.5 -3 5.5 -3 -5.5 z" fill="#9E2B25"/>
+      </svg>
+    </div>
+    <div class="eyebrow reveal">HDChina Official Group · Telegram</div>
+    <h1 class="reveal letterpress">守夜人名册</h1>
+    <div class="h1-sub reveal">The Night Watch Registry</div>
+    <div class="edition reveal">限量印制 · <b>No. <span id="edNo">0001</span></b> of <span>2,854</span></div>
+  </header>
+
+  <div class="rule reveal"><span>卷 首</span></div>
+
+  <!-- ② 卷首 -->
+  <div class="foreword">
+    <div class="vertical reveal letterpress">站点沉睡的一千零三十七个夜晚，有人一直在敲门</div>
+    <div class="foreword-body reveal">
+      <div class="ka">KEEP-ALIVE · <b>14,829</b> PACKETS · NEVER DISCONNECTED<br> SIGNAL ORIGIN — HDCHINA OFFICIAL GROUP</div>
+      <div class="type-block" id="typeBlock"></div>
+      <div class="type-meta">第一声 · <b>2023.11.29 — 07:21:50</b> · 自此夜夜有回音</div>
+      <div class="rebirth">
+        <div class="lab">附 记</div>
+        <p>2023 年 12 月 1 日，Rogers 曾向群内 bot 呼唤过一次 <span class="cmd">/rebirth</span>。<br>两年十个月之后，它应验了。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule reveal"><span>铭 记</span></div>
+
+  <!-- ③ 数字栏 -->
+  <section>
+    <div class="sec-head">
+      <div class="k">The Ledger</div>
+      <h2 class="letterpress">此册所记</h2>
+      <div class="s">一千零三十七个昼夜 · 一万四千八百二十九次呼唤 · 两千八百五十四位守夜人</div>
+    </div>
+    <div class="figures reveal">
+      <div class="fig">
+        <div class="fig-val" data-count="1037">0</div>
+        <div class="fig-lab">个昼夜</div>
+        <div class="fig-note">DAYS ELAPSED</div>
+      </div>
+      <div class="fig">
+        <div class="fig-val" data-count="14829">0</div>
+        <div class="fig-lab">次呼唤</div>
+        <div class="fig-note">CALLS MADE</div>
+      </div>
+      <div class="fig">
+        <div class="fig-val" data-count="2854">0</div>
+        <div class="fig-lab">位守夜人</div>
+        <div class="fig-note">KEEPERS ON RECORD</div>
+      </div>
+    </div>
+    <div class="dial-row reveal">
+      <div>
+        <div class="dial" id="dial"></div>
+        <div class="dial-cap">年轮 · 四季有声，二〇二四年最盛</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule reveal"><span>点 名</span></div>
+
+  <!-- ④ 点名簿 -->
+  <section>
+    <div class="sec-head">
+      <div class="k">The Roll Book</div>
+      <h2 class="letterpress">点名簿</h2>
+      <div class="s">一千零三十八天里，一千零零九天有人应到——几乎没有一夜沉默</div>
+    </div>
+    <div class="rollbook reveal" id="rollbook">
+      <span class="corner tl">ROLL · 2023.11 — 2026.10</span>
+      <span class="corner br">ATTENDANCE 97.2%</span>
+      <div class="heat-months" id="heatMonths"></div>
+      <div class="heat" id="heat"></div>
+      <div class="legend">
+        少
+        <i style="background:rgba(28,24,20,.055)"></i>
+        <i style="background:rgba(158,43,37,.28)"></i>
+        <i style="background:rgba(158,43,37,.52)"></i>
+        <i style="background:rgba(158,43,37,.75)"></i>
+        <i style="background:rgba(158,43,37,.94)"></i>
+        多 · 每点为一日
+      </div>
+      <div class="gauges">
+        <div class="gauge"><div class="v"><em>97.2</em>%</div><div class="k">应到天数占比</div></div>
+        <div class="gauge"><div class="v">1,009<span style="font-size:12px;color:var(--ink-faint)">/1,038</span></div><div class="k">有声之夜</div></div>
+        <div class="gauge"><div class="v"><em>489</em> 天</div><div class="k">最长连续守夜</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule reveal"><span>名 录</span></div>
+
+  <!-- ⑤ 守夜人名录 -->
+  <section>
+    <div class="sec-head">
+      <div class="k">The Registry</div>
+      <h2 class="letterpress">守夜人名录</h2>
+      <div class="s">以入册先后为序 · 不排名次 · 致敬不是竞赛</div>
+    </div>
+    <div class="registry reveal" id="registry">
+      <div class="registry-gold">以下一百九十八人，自二〇二三年入册，至今仍在呼唤</div>
+      <div class="elder-stamp">
+        <svg viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="47" stroke="#9E2B25" stroke-width="2.4"/>
+          <circle cx="50" cy="50" r="41" stroke="#9E2B25" stroke-width="1"/>
+          <text x="50" y="46" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="17" fill="#9E2B25" letter-spacing="2">元老</text>
+          <text x="50" y="66" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#9E2B25" letter-spacing="2">KEEPER</text>
+        </svg>
+      </div>
+      <div class="walls" id="walls"></div>
+      <div class="appendix" id="appendix"></div>
+    </div>
+  </section>
+
+  <div class="rule reveal"><span>应 门</span></div>
+
+  <!-- ⑥ 七枚铅封 -->
+  <section>
+    <div class="sec-head">
+      <div class="k">The Answerers</div>
+      <h2 class="letterpress">七位应门人</h2>
+      <div class="s">被呼唤的 bot · 印为铅封 · 永不磨损</div>
+    </div>
+    <div class="leads reveal" id="leads"></div>
+    <div class="leads-cap reveal">它们回应了每一次敲门——无论凌晨四点，还是除夕夜。</div>
+  </section>
+
+  <!-- ⑦ 票根落款 -->
+  <footer>
+    <div class="ticket reveal">
+      <div class="tkc-l">
+        <div class="org">HDChina 守夜同好 · 会订</div>
+        <div class="final letterpress">守夜结束，<br><b>灯，交还站点。</b></div>
+        <div class="sig">二〇二三年冬 记 · 二〇二六年秋 终卷</div>
+      </div>
+      <div class="tkc-r">
+        <div class="no">STUB No. <b id="stubNo">0001</b><br>/ 2,854</div>
+        <div class="stamp" id="stamp">
+          <svg viewBox="0 0 140 140" fill="none">
+            <defs>
+              <filter id="grunge"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+              <path id="sp" d="M70,70 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/>
+            </defs>
+            <g filter="url(#grunge)">
+              <circle cx="70" cy="70" r="66" stroke="#9E2B25" stroke-width="3"/>
+              <circle cx="70" cy="70" r="57" stroke="#9E2B25" stroke-width="1.4"/>
+              <text font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="2.6" fill="#9E2B25">
+                <textPath href="#sp">KEEPER · VERIFIED · NIGHT WATCH COMPLETE ·</textPath>
+              </text>
+              <text x="70" y="64" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="21" fill="#9E2B25" letter-spacing="4">核销</text>
+              <text x="70" y="84" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="10" fill="#9E2B25" letter-spacing="3">已核讫</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stamptxt">守夜已成</div>
+      </div>
+    </div>
+    <div class="colophon reveal">
+      <span class="row3">RATIO <i>2,854 : 1</i> · MAGIC <i>+14,829</i> · <em>NO H&amp;R — NOBODY LEFT</em></span><br>
+      HDCHINA 回归纪念 · 铭刻于 2026.10.01 · 由 21,648 条群消息打捞而成
+    </div>
+  </footer>
+
+</main>
+</div>
+
+<script>
+const STATS = __STATS__;
+
+/* 转义：聊天导出的用户名属不可控文本，入墙前一律转义 */
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ————— 编号 ————— */
+const ed = String(1 + Math.floor(Math.random() * 2854)).padStart(4, "0");
+document.getElementById("edNo").textContent = ed;
+document.getElementById("stubNo").textContent = ed;
+
+/* ————— 铅字块：第一声 /verify@hdchina_group_bot ————— */
+const FIRST = "/verify@hdchina_group_bot";
+document.getElementById("typeBlock").innerHTML = [...FIRST].map(c =>
+  `<span class="ch${c === "/" ? " red" : ""}">${esc(c)}</span>`).join("");
+
+/* ————— 年轮表盘 ————— */
+(function(){
+  const byYear = {2023:3523, 2024:7116, 2025:2731, 2026:1459};
+  const total = Object.values(byYear).reduce((a,b)=>a+b,0);
+  const R = 118, C = 2 * Math.PI * R, GAP = 10;
+  let off = 0;
+  const segs = Object.entries(byYear).map(([y,n])=>{
+    const len = C * n / total - GAP;
+    const seg = `<circle cx="150" cy="150" r="${R}" fill="none" stroke="#A8863F" stroke-width="13"
+      stroke-dasharray="${len.toFixed(1)} ${(C-len).toFixed(1)}" stroke-dashoffset="${(-off).toFixed(1)}" stroke-linecap="butt"/>`;
+    const midA = (off + GAP/2 + len/2) / C * 360 - 90;
+    const rad = midA * Math.PI / 180;
+    const lx = 150 + Math.cos(rad) * (R - 34), ly = 150 + Math.sin(rad) * (R - 34) + 3;
+    const lab = `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle"
+      font-family="IBM Plex Mono,monospace" font-size="11" fill="#57503F">${esc(y)}</text>`;
+    off += C * n / total;
+    return seg + lab;
+  }).join("");
+  let ticks = "";
+  for(let i = 0; i < 72; i++){
+    const a = i / 72 * 2 * Math.PI;
+    const r1 = R + 12, r2 = R + (i % 18 === 0 ? 20 : 16);
+    ticks += `<line x1="${(150+Math.cos(a)*r1).toFixed(1)}" y1="${(150+Math.sin(a)*r1).toFixed(1)}"
+      x2="${(150+Math.cos(a)*r2).toFixed(1)}" y2="${(150+Math.sin(a)*r2).toFixed(1)}"
+      stroke="#1C1814" stroke-opacity="${i % 18 === 0 ? .55 : .22}" stroke-width="1"/>`;
+  }
+  document.getElementById("dial").innerHTML =
+    `<svg viewBox="0 0 300 300">${ticks}${segs}
+     <circle cx="150" cy="150" r="86" fill="none" stroke="#1C1814" stroke-opacity=".18" stroke-width="1"/></svg>
+     <div class="dial-center"><div class="n">1,037</div><div class="t">昼夜</div></div>`;
+})();
+
+/* ————— 点名簿：月×日 朱记 ————— */
+(function(){
+  const daily = STATS.watch.daily;
+  const months = Object.keys(STATS.watch.monthly); // 36 个月
+  const cells = [], labels = [];
+  months.forEach((m, mi) => {
+    const [y, mm] = m.split("-");
+    const isNewYear = mm === "01" || mi === 0;
+    labels.push(`<span class="${isNewYear ? "yr" : ""}" title="${esc(m)}">${esc(isNewYear ? y.slice(2) : mm)}</span>`);
+    const dim = new Date(+y, +mm, 0).getDate();
+    for(let d = 1; d <= 31; d++){
+      if(d > dim){ cells.push(`<i class="cell void" style="--d:${mi * 14}ms"></i>`); continue; }
+      const key = `${y}-${mm}-${String(d).padStart(2,"0")}`;
+      const n = daily[key] || 0;
+      const lv = n === 0 ? "" : n < 2 ? "h1" : n < 5 ? "h2" : n < 10 ? "h3" : "h4";
+      cells.push(`<i class="cell ${lv}" style="--d:${mi * 14}ms" title="${esc(key)} · ${n} 次"></i>`);
+    }
+  });
+  document.getElementById("heatMonths").innerHTML = labels.join("");
+  document.getElementById("heat").innerHTML = cells.join("");
+})();
+
+/* ————— 守夜人名录墙 ————— */
+(function(){
+  const ws = STATS.watch.watchers;
+  document.getElementById("walls").innerHTML = ws.map(w => {
+    const [, m, d] = w.first.split("-");
+    return `<div class="w"><b>${esc(w.name)}</b><span>${+m}.${+d}</span></div>`;
+  }).join("");
+  const top = STATS.top_callers.slice(0, 3);
+  document.getElementById("appendix").innerHTML =
+    `另录：此间呼唤最勤者，为 <b>${esc(top[0].name)}</b>（${top[0].calls.toLocaleString()} 声）、<b>${esc(top[1].name)}</b>（${top[1].calls.toLocaleString()} 声）、<b>${esc(top[2].name)}</b>（${top[2].calls.toLocaleString()} 声）。名册不以此论序——守夜从不论声量，只论在场。`;
+})();
+
+/* ————— 七枚铅封 ————— */
+(function(){
+  const B = [
+    {s:"MIT",  n:"hdchina_mit_bot",     c:7559},
+    {s:"GRP",  n:"hdchina_group_bot",   c:6487},
+    {s:"OP",   n:"hdchina_op_bot",      c:428},
+    {s:"G·MT", n:"hdchina_group_mit",   c:298},
+    {s:"MCE",  n:"hdchina_mice_bot",    c:38},
+    {s:"HDW",  n:"hdwing_group_bot",    c:18},
+    {s:"MSH",  n:"hdchina_mushroom_bot",c:1},
+  ];
+  const maxC = B[0].c;
+  document.getElementById("leads").innerHTML = B.map((b, i) => {
+    const size = Math.round(46 + 68 * Math.sqrt(b.c / maxC));
+    const fs = Math.max(10, Math.round(size * .19));
+    return `<div class="lead${i === 0 ? " big" : ""}">
+      <div class="lead-stamp" style="width:${size}px;height:${size}px;font-size:${fs}px">${esc(b.s)}</div>
+      <div class="lead-name">@${esc(b.n)}</div>
+      <div class="lead-cnt">回应了 ${b.c.toLocaleString()} 次</div>
+    </div>`;
+  }).join("");
+})();
+
+/* ————— 滚动：浮现 / 计数 / 盖章 ————— */
+const ease = t => 1 - Math.pow(1 - t, 3);
+function countUp(el, target, dur){
+  const t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0) / dur, 1);
+    el.textContent = Math.round(target * ease(p)).toLocaleString("en-US");
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target;
+    el.classList.add("on");
+    el.querySelectorAll("[data-count]").forEach(b => countUp(b, +b.dataset.count, 1800));
+    const stamp = el.querySelector(".stamp");
+    if(stamp) setTimeout(() => stamp.classList.add("on"), 520);
+    io.unobserve(el);
+  });
+}, {threshold: 0});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

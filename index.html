@@ -3,456 +3,641 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每一声呼唤，都有回应 · HDChina 群纪念</title>
+<title>守夜人名册 · HDChina 回归纪念</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700;900&family=Fraunces:opsz,wght@9..144,300;9..144,600&family=IBM+Plex+Mono:wght@300;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
 <style>
 :root{
-  --night-0:#070b14;
-  --night-1:#0c1220;
-  --night-2:#131b2e;
-  --gold:#d9a441;
-  --gold-soft:#e8c47c;
-  --gold-dim:rgba(217,164,65,.35);
-  --cyan:#8fb8cc;
-  --ink:#ece5d8;
-  --ink-dim:#a9a294;
-  --ink-faint:#6d6a60;
+  --paper:#F2ECDF;
+  --paper-deep:#EAE1CC;
+  --paper-card:#EFE7D6;
+  --ink:#1C1814;
+  --ink-soft:#57503F;
+  --ink-faint:#8F8674;
+  --line:rgba(28,24,20,.28);
+  --line-faint:rgba(28,24,20,.14);
+  --bronze:#A8863F;
+  --bronze-deep:#8a6d33;
+  --seal:#9E2B25;
   --serif:"Noto Serif SC","Songti SC",serif;
-  --display:"Fraunces","Noto Serif SC",serif;
+  --kai:"LXGW WenKai","Noto Serif SC",serif;
+  --display:"Playfair Display","Noto Serif SC",serif;
   --mono:"IBM Plex Mono","Consolas",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(1100px 700px at 50% -12%, #17233d 0%, transparent 62%),
-    radial-gradient(900px 600px at 88% 112%, #101a2e 0%, transparent 55%),
-    linear-gradient(180deg, var(--night-0) 0%, var(--night-1) 55%, var(--night-0) 100%);
+  background:var(--paper);
   color:var(--ink);
   font-family:var(--serif);
   min-height:100vh;
   overflow-x:hidden;
-  letter-spacing:.02em;
-}
-#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-.grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
-}
-main{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:0 28px 40px}
-
-/* ————— 载入浮现 ————— */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.2,.7,.3,1),transform 1.1s cubic-bezier(.2,.7,.3,1)}
-.reveal.on{opacity:1;transform:none}
-
-/* ————— 徽章 ————— */
-header{padding:76px 0 30px;text-align:center}
-.seal{width:150px;height:150px;margin:0 auto 40px;position:relative;filter:drop-shadow(0 0 22px rgba(217,164,65,.22))}
-.seal svg{width:100%;height:100%;animation:sealIn 1.6s cubic-bezier(.2,.8,.25,1) both}
-@keyframes sealIn{from{opacity:0;transform:scale(.72) rotate(-14deg)}to{opacity:1;transform:none}}
-.seal .ring-rot{transform-origin:80px 80px;animation:slowSpin 70s linear infinite}
-@keyframes slowSpin{to{transform:rotate(360deg)}}
-.eyebrow{
-  font-family:var(--mono);font-size:11px;letter-spacing:.42em;text-indent:.42em;
-  color:var(--gold);text-transform:uppercase;margin-bottom:26px;
-}
-h1{
-  font-family:var(--serif);font-weight:900;font-size:clamp(34px,6.4vw,62px);
-  line-height:1.28;letter-spacing:.06em;
-  background:linear-gradient(160deg,#f4ead6 30%,var(--gold-soft) 78%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  text-shadow:none;
-}
-.sub{
-  margin:30px auto 0;max-width:560px;color:var(--ink-dim);
-  font-weight:300;font-size:15px;line-height:2.15;text-align:justify;text-align-last:center;
-}
-.sub em{font-style:normal;color:var(--gold-soft);font-weight:500}
-.hr-star{display:flex;align-items:center;gap:18px;margin:64px 0 0;color:var(--gold)}
-.hr-star::before,.hr-star::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
-.hr-star::after{background:linear-gradient(90deg,var(--gold-dim),transparent)}
-.hr-star span{font-size:13px;letter-spacing:.5em;text-indent:.5em}
-
-/* ————— 大数字 ————— */
-.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:58px 0 8px}
-.num-card{
-  border:1px solid rgba(217,164,65,.16);border-radius:4px;
-  background:linear-gradient(180deg,rgba(23,32,54,.55),rgba(12,18,32,.35));
-  padding:34px 10px 28px;position:relative;backdrop-filter:blur(3px);
-  transition:transform .5s ease,border-color .5s ease;
-}
-.num-card:hover{transform:translateY(-5px);border-color:rgba(217,164,65,.42)}
-.num-card::before{content:"";position:absolute;top:-1px;left:24px;right:24px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
-.num-val{
-  font-family:var(--mono);font-weight:300;font-size:clamp(30px,5.2vw,46px);
-  color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;
-}
-.num-val b{font-weight:600;color:var(--gold-soft)}
-.num-lab{margin-top:14px;font-size:13px;color:var(--ink-dim);letter-spacing:.28em;text-indent:.28em}
-.num-note{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-top:8px;letter-spacing:.12em}
-
-/* ————— 首末呼唤 ————— */
-section{margin-top:96px}
-.sec-head{text-align:center;margin-bottom:44px}
-.sec-head .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.4em;text-indent:.4em;color:var(--gold);text-transform:uppercase}
-.sec-head h2{font-weight:700;font-size:clamp(21px,3.4vw,27px);letter-spacing:.14em;margin-top:14px}
-.calls{display:grid;grid-template-columns:1fr 54px 1fr;align-items:stretch;gap:0}
-.call-card{
-  border:1px solid rgba(143,184,204,.14);border-radius:4px;padding:30px 26px;
-  background:linear-gradient(180deg,rgba(19,27,46,.5),rgba(10,15,26,.3));
-  position:relative;overflow:hidden;transition:border-color .5s ease,transform .5s ease;
-}
-.call-card:hover{border-color:rgba(217,164,65,.4);transform:translateY(-4px)}
-.call-card .tag{font-size:12px;letter-spacing:.34em;text-indent:.34em;color:var(--cyan);margin-bottom:20px}
-.call-card .cmd{
-  font-family:var(--mono);font-size:clamp(14px,2.2vw,17px);color:var(--ink);
-  padding:13px 15px;border-left:2px solid var(--gold);background:rgba(217,164,65,.06);
-  border-radius:0 3px 3px 0;word-break:break-all;
-}
-.call-card .cmd .at{color:var(--gold-soft)}
-.call-card .when{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:18px;letter-spacing:.1em}
-.call-card .say{font-size:13px;color:var(--ink-dim);margin-top:14px;line-height:1.9;font-weight:300}
-.calls .link{display:flex;align-items:center;justify-content:center;position:relative}
-.calls .link::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent)}
-.calls .link span{
-  width:9px;height:9px;transform:rotate(45deg);background:var(--night-0);
-  border:1px solid var(--gold);z-index:1;box-shadow:0 0 12px rgba(217,164,65,.5);
-}
-
-/* ————— bot 榜单 ————— */
-.bot-list{display:flex;flex-direction:column;gap:13px}
-.bot-row{display:grid;grid-template-columns:26px 1fr 96px;align-items:center;gap:14px}
-.bot-rank{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:right}
-.bot-row.top3 .bot-rank{color:var(--gold)}
-.bot-main{min-width:0}
-.bot-name{
-  font-family:var(--mono);font-size:13px;color:var(--ink-dim);margin-bottom:7px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.bot-row.top3 .bot-name{color:var(--ink)}
-.bot-name .medal{font-size:11px;margin-right:7px}
-.bot-bar-wrap{height:5px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
-.bot-bar{
-  height:100%;border-radius:99px;width:0;
-  background:linear-gradient(90deg,#8a6a2a,var(--gold) 60%,var(--gold-soft));
-  box-shadow:0 0 10px rgba(217,164,65,.28);
-  transition:width 1.4s cubic-bezier(.25,.8,.25,1);
-}
-.bot-row:not(.top3) .bot-bar{background:linear-gradient(90deg,#3d5566,var(--cyan) 70%,#b9d6e2);box-shadow:none}
-.bot-count{font-family:var(--mono);font-size:15px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
-.bot-row.top3 .bot-count{color:var(--gold-soft)}
-.bot-row:not(.top3) .bot-count{color:var(--cyan);font-weight:300}
-.bot-count small{font-size:10px;color:var(--ink-faint);font-weight:300;margin-left:4px}
-
-/* ————— 年度 ————— */
-.years{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end;height:230px}
-.year-col{display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:12px}
-.year-val{font-family:var(--mono);font-size:14px;color:var(--gold-soft);text-align:center;font-variant-numeric:tabular-nums}
-.year-bar{
-  width:100%;border-radius:3px 3px 0 0;height:0%;
-  background:linear-gradient(180deg,rgba(217,164,65,.85),rgba(217,164,65,.12));
-  border-top:1px solid var(--gold);
-  transition:height 1.5s cubic-bezier(.25,.8,.25,1);
+  letter-spacing:.03em;
   position:relative;
 }
-.year-bar::after{content:"";position:absolute;left:15%;right:15%;top:0;height:100%;
-  background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 40%)}
-.year-lab{font-family:var(--mono);font-size:12px;color:var(--ink-dim);text-align:center;letter-spacing:.2em}
-.year-note{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:26px;letter-spacing:.1em}
-
-/* ————— 呼唤者榜 ————— */
-.callers{border:1px solid rgba(217,164,65,.14);border-radius:4px;overflow:hidden}
-.crow{
-  display:grid;grid-template-columns:44px 1fr 84px;align-items:center;gap:12px;
-  padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.05);
-  transition:background .3s ease;
+/* 纸纤维 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:50;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='7'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E");
+  opacity:.055;mix-blend-mode:multiply;
 }
-.crow:last-child{border-bottom:none}
-.crow:hover{background:rgba(217,164,65,.05)}
-.crow .r{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
-.crow.first .r{color:var(--gold)}
-.crow .n{font-size:14px;color:var(--ink-dim);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.crow.first .n{color:var(--gold-soft);font-weight:500}
-.crow.first{background:linear-gradient(90deg,rgba(217,164,65,.1),transparent 55%)}
-.crow .c{font-family:var(--mono);font-size:14px;color:var(--cyan);text-align:right;font-variant-numeric:tabular-nums}
-.crow.first .c{color:var(--gold-soft);font-weight:600}
-.crow .c small{font-size:10px;color:var(--ink-faint)}
+/* 四角 vignette */
+body::after{
+  content:"";position:fixed;inset:0;z-index:49;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 42%, transparent 58%, rgba(74,58,36,.14) 100%);
+}
+/* 证书外框 */
+.sheet{
+  max-width:920px;margin:0 auto;padding:34px 26px 60px;position:relative;z-index:2;
+}
+.sheet::before{
+  content:"";position:absolute;inset:16px;border:1px solid rgba(168,134,63,.5);
+  pointer-events:none;
+}
+.sheet::after{
+  content:"";position:absolute;inset:22px;border:1px solid rgba(168,134,63,.22);
+  pointer-events:none;
+}
+main{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 12px}
 
-/* ————— 落款 ————— */
-footer{margin-top:120px;text-align:center;padding-bottom:30px}
-.foot-quote{
-  font-size:clamp(17px,2.8vw,21px);font-weight:300;letter-spacing:.16em;line-height:2.2;
+/* 凹版铅字压痕 */
+.letterpress{text-shadow:0 1px 0 rgba(255,255,255,.55)}
+
+/* ————— 载入 ————— */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .95s cubic-bezier(.2,.7,.3,1),transform .95s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+
+/* ————— ① 封套 ————— */
+header{padding:64px 0 26px;text-align:center}
+.seal-wrap{width:190px;height:190px;margin:0 auto 38px;position:relative}
+.seal-wrap svg{width:100%;height:100%;transform:rotate(-3deg);filter:drop-shadow(0 1px 0 rgba(255,255,255,.5))}
+.seal-wrap .ring-rot{transform-origin:95px 95px;animation:slowSpin 90s linear infinite}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.5em;text-indent:.5em;color:var(--bronze);margin-bottom:24px;text-transform:uppercase}
+h1{
+  font-weight:900;font-size:clamp(40px,8vw,68px);letter-spacing:.14em;line-height:1.2;
   color:var(--ink);
 }
-.foot-quote b{font-weight:700;color:var(--gold-soft)}
-.foot-sub{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:30px;letter-spacing:.24em;line-height:2.4}
-.foot-sub i{font-style:normal;color:var(--gold)}
+.h1-sub{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.36em;text-indent:.36em;
+  color:var(--ink-faint);margin-top:20px;text-transform:uppercase;
+}
+.edition{
+  margin:30px auto 0;display:inline-block;padding:9px 26px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--ink-soft);
+}
+.edition b{color:var(--seal);font-weight:500}
 
-@media (max-width:640px){
-  header{padding-top:58px}
-  .numbers{grid-template-columns:1fr 1fr}
-  .num-card:first-child{grid-column:1 / -1}
-  .calls{grid-template-columns:1fr}
-  .calls .link{height:44px}
-  .calls .link::before{top:50%;bottom:auto;left:50%;right:auto;height:100%;width:1px;
-    background:linear-gradient(180deg,transparent,var(--gold-dim) 30%,var(--gold-dim) 70%,transparent)}
-  .bot-row{grid-template-columns:20px 1fr 76px}
-  .years{height:180px;gap:10px}
-  .crow{grid-template-columns:34px 1fr 70px;padding:12px 14px}
+/* ————— 分隔 ————— */
+.rule{display:flex;align-items:center;gap:16px;margin:74px 0 0;color:var(--bronze)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--line-faint)}
+.rule span{font-size:11px;letter-spacing:.4em;text-indent:.4em}
+
+/* ————— ② 卷首 ————— */
+.foreword{
+  display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;
+  padding-top:64px;
+}
+.vertical{
+  writing-mode:vertical-rl;font-size:clamp(19px,3vw,24px);font-weight:500;
+  letter-spacing:.42em;line-height:2.3;color:var(--ink);height:400px;
+  border-left:1px solid var(--line-faint);padding-left:26px;margin-left:auto;
+}
+.foreword-body{padding-top:8px}
+.ka{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-faint);line-height:2.2;word-break:break-all}
+.ka b{color:var(--bronze);font-weight:500}
+.type-block{display:flex;flex-wrap:wrap;gap:4px;margin-top:30px}
+.type-block .ch{
+  min-width:34px;height:44px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);background:var(--paper-card);
+  font-family:var(--mono);font-size:15px;color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 1px 0 rgba(255,255,255,.4);
+  transition:background .3s ease,color .3s ease;
+}
+.type-block .ch:hover{background:var(--ink);color:var(--paper)}
+.type-block .ch.red{color:var(--seal);border-color:rgba(158,43,37,.5)}
+.type-block .ch.red:hover{background:var(--seal);color:var(--paper)}
+.type-meta{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:14px;letter-spacing:.14em}
+.type-meta b{color:var(--ink-soft);font-weight:500}
+.rebirth{
+  margin-top:38px;padding:20px 22px;border-left:2px solid var(--seal);
+  background:linear-gradient(90deg,rgba(158,43,37,.05),transparent 70%);
+}
+.rebirth p{font-family:var(--kai);font-size:14.5px;line-height:2.1;color:var(--ink-soft)}
+.rebirth .cmd{font-family:var(--mono);color:var(--seal);font-size:13px}
+.rebirth .lab{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--seal);margin-bottom:10px}
+
+/* ————— ③ 数字栏 ————— */
+section{padding-top:88px}
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-head .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.42em;text-indent:.42em;color:var(--bronze);text-transform:uppercase}
+.sec-head h2{font-weight:700;font-size:clamp(21px,3.4vw,27px);letter-spacing:.2em;margin-top:14px}
+.sec-head .s{font-size:13px;color:var(--ink-faint);margin-top:14px;font-weight:300;letter-spacing:.1em}
+.figures{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+  margin-top:8px;
+}
+.fig{padding:34px 8px 28px;text-align:center;position:relative}
+.fig + .fig{border-left:1px solid var(--line)}
+.fig-val{
+  font-family:var(--display);font-weight:700;font-size:clamp(34px,5.6vw,52px);
+  background:linear-gradient(120deg,#8a6d33 0%,#c9a961 30%,#9c7c3a 55%,#d9bc7c 80%,#8a6d33 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-variant-numeric:tabular-nums;line-height:1.05;
+}
+.fig-lab{margin-top:16px;font-size:13.5px;color:var(--ink-soft);letter-spacing:.34em;text-indent:.34em}
+.fig-note{font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:.16em}
+.dial-row{display:flex;justify-content:center;margin-top:56px}
+.dial{width:300px;height:300px;position:relative}
+.dial svg{width:100%;height:100%}
+.dial-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+}
+.dial-center .n{font-family:var(--display);font-weight:700;font-size:56px;color:var(--ink);line-height:1}
+.dial-center .t{font-size:12px;letter-spacing:.5em;text-indent:.5em;color:var(--ink-faint)}
+.dial-cap{margin-top:30px;text-align:center;font-family:var(--kai);font-size:13.5px;color:var(--ink-faint);letter-spacing:.12em}
+
+/* ————— ④ 点名簿 ————— */
+.rollbook{
+  border:1px solid var(--line);background:var(--paper-card);
+  padding:30px 26px 24px;position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset;
+}
+.rollbook .corner{position:absolute;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);letter-spacing:.18em}
+.rollbook .corner.tl{top:10px;left:12px}
+.rollbook .corner.br{bottom:10px;right:12px}
+.heat{
+  display:grid;grid-template-rows:repeat(31,1fr);grid-auto-flow:column;
+  gap:3px;justify-content:center;
+  margin-top:26px;
+}
+.heat .cell{
+  width:var(--cs,13px);height:var(--cs,13px);border-radius:50%;
+  background:rgba(28,24,20,.055);
+  opacity:0;transform:scale(.4);
+  transition:opacity .5s ease var(--d,0s),transform .5s ease var(--d,0s),background .3s ease;
+}
+.rollbook.on .cell{opacity:1;transform:scale(1)}
+.heat .cell.h1{background:rgba(158,43,37,.28)}
+.heat .cell.h2{background:rgba(158,43,37,.52)}
+.heat .cell.h3{background:rgba(158,43,37,.75)}
+.heat .cell.h4{background:rgba(158,43,37,.94)}
+.heat .cell.void{background:transparent}
+.heat-months{
+  display:grid;grid-auto-flow:column;gap:3px;justify-content:center;
+  margin-top:10px;
+}
+.heat-months span{
+  width:var(--cs,13px);text-align:center;font-family:var(--mono);
+  font-size:8px;color:var(--ink-faint);transform:scale(.86);
+}
+.heat-months span.yr{color:var(--bronze);font-weight:500}
+.legend{
+  display:flex;justify-content:center;align-items:center;gap:8px;
+  margin-top:22px;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);letter-spacing:.14em;
+}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.gauges{
+  display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;
+  border-top:1px solid var(--line-faint);padding-top:22px;gap:10px;
+}
+.gauge{text-align:center}
+.gauge .v{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+.gauge .v em{font-style:normal;color:var(--seal)}
+.gauge .k{font-family:var(--mono);font-size:9px;letter-spacing:.26em;color:var(--ink-faint);margin-top:8px}
+
+/* ————— ⑤ 守夜人名录 ————— */
+.registry{position:relative}
+.registry-gold{
+  text-align:center;font-size:15px;letter-spacing:.3em;text-indent:.3em;
+  background:linear-gradient(120deg,#8a6d33,#c9a961 40%,#9c7c3a 70%,#d9bc7c);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:500;margin-bottom:34px;
+}
+.elder-stamp{
+  position:absolute;top:-8px;right:0;transform:rotate(8deg);
+  width:74px;height:74px;opacity:.9;
+}
+.elder-stamp svg{width:100%;height:100%}
+.walls{
+  column-count:4;column-gap:34px;column-rule:1px solid var(--line-faint);
+  font-size:12.5px;line-height:2.05;
+}
+.walls .w{
+  break-inside:avoid;color:var(--ink-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  opacity:0;transform:translateX(-6px);
+  transition:opacity .45s ease,transform .45s ease;
+}
+.registry.on .walls .w{opacity:1;transform:none}
+.walls .w b{font-weight:500;color:var(--ink)}
+.walls .w span{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-left:6px}
+.appendix{
+  margin-top:36px;padding-top:20px;border-top:1px solid var(--line-faint);
+  font-family:var(--kai);font-size:13px;color:var(--ink-faint);line-height:2;letter-spacing:.05em;
+}
+.appendix b{color:var(--ink-soft);font-weight:500}
+
+/* ————— ⑥ 七枚铅封 ————— */
+.leads{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,3.4vw,34px);flex-wrap:wrap;margin-top:10px}
+.lead{display:flex;flex-direction:column;align-items:center;gap:14px}
+.lead-stamp{
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--ink);position:relative;
+  box-shadow:inset 0 0 0 3px var(--paper-card),inset 0 0 0 4px var(--line);
+  background:var(--paper-card);
+  font-family:var(--mono);font-weight:500;color:var(--ink);letter-spacing:.06em;
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  transition:transform .4s ease;
+}
+.lead:hover .lead-stamp{transform:translateY(-4px) rotate(-2deg)}
+.lead-stamp::after{
+  content:"";position:absolute;inset:5px;border-radius:50%;
+  border:1px dashed var(--line);
+}
+.lead.big .lead-stamp{color:var(--seal);border-color:var(--seal);box-shadow:inset 0 0 0 3px var(--paper-card),inset 0 0 0 4px rgba(158,43,37,.4)}
+.lead-name{font-family:var(--mono);font-size:10px;color:var(--ink-faint);max-width:110px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lead-cnt{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:.06em}
+.leads-cap{text-align:center;margin-top:40px;font-family:var(--kai);font-size:13.5px;color:var(--ink-faint)}
+
+/* ————— ⑦ 票根落款 ————— */
+footer{margin-top:110px}
+.ticket{
+  position:relative;border:1.5px solid var(--ink);background:var(--paper-card);
+  display:grid;grid-template-columns:1fr 236px;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset;
+}
+.ticket::before{ /* 撕线 */
+  content:"";position:absolute;top:0;bottom:0;left:calc(100% - 236px);
+  border-left:1.5px dashed var(--line);
+}
+.tkc-l{padding:46px 44px 42px 40px}
+.tkc-l .org{font-family:var(--kai);font-size:14px;color:var(--ink-soft);letter-spacing:.3em;margin-bottom:26px}
+.tkc-l .final{
+  font-size:clamp(22px,3.6vw,30px);font-weight:900;letter-spacing:.12em;line-height:1.9;
+}
+.tkc-l .final b{
+  background:linear-gradient(120deg,#8a6d33,#c9a961 40%,#9c7c3a 70%,#d9bc7c);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tkc-l .sig{margin-top:34px;font-family:var(--kai);font-size:13px;color:var(--ink-faint);letter-spacing:.1em}
+.tkc-r{
+  padding:36px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  text-align:center;
+}
+.tkc-r .no{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.14em}
+.tkc-r .no b{color:var(--seal);font-weight:500;font-size:14px}
+.stamp{
+  width:128px;height:128px;position:relative;
+  opacity:0;transform:scale(2.1) rotate(-30deg);
+  transition:opacity .55s cubic-bezier(.3,1.1,.4,1),transform .55s cubic-bezier(.34,1.45,.55,1);
+}
+.stamp.on{opacity:1;transform:scale(1) rotate(-7deg)}
+.stamp svg{width:100%;height:100%}
+.tkc-r .stamptxt{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--seal)}
+.colophon{
+  margin-top:44px;text-align:center;font-family:var(--mono);
+  font-size:10px;color:var(--ink-faint);letter-spacing:.2em;line-height:2.6;
+}
+.colophon .row3{color:var(--ink-soft)}
+.colophon i{font-style:normal;color:var(--bronze)}
+.colophon em{font-style:normal;color:var(--seal)}
+
+@media (max-width:680px){
+  .foreword{grid-template-columns:1fr}
+  .vertical{height:300px;margin:0 auto;padding-left:20px}
+  .figures{grid-template-columns:1fr}
+  .fig + .fig{border-left:none;border-top:1px solid var(--line)}
+  :root{--cs:7px}
+  .rollbook{overflow-x:auto;padding:24px 14px 20px}
+  .heat,.heat-months{gap:2px;width:max-content;margin-inline:auto}
+  .walls{column-count:2;column-gap:22px}
+  .ticket{grid-template-columns:1fr}
+  .ticket::before{border-left:none;border-top:1.5px dashed var(--line);left:0;right:0;top:auto;bottom:224px;position:absolute}
+  .gauges{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .tkc-l{padding:34px 26px}
 }
 </style>
 </head>
 <body>
-<canvas id="sky"></canvas>
-<div class="grain"></div>
+<div class="sheet">
 <main>
 
+  <!-- ① 封套 -->
   <header>
-    <div class="seal reveal on">
-      <svg viewBox="0 0 160 160" fill="none">
-        <defs>
-          <path id="ringPath" d="M80,80 m-64,0 a64,64 0 1,1 128,0 a64,64 0 1,1 -128,0"/>
-        </defs>
-        <circle cx="80" cy="80" r="78" stroke="#d9a441" stroke-opacity=".55" stroke-width="1"/>
-        <circle cx="80" cy="80" r="72" stroke="#d9a441" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 5"/>
-        <circle cx="80" cy="80" r="56" stroke="#d9a441" stroke-opacity=".7" stroke-width="1.2"/>
-        <circle cx="80" cy="80" r="53" stroke="#8fb8cc" stroke-opacity=".25" stroke-width="1"/>
+    <div class="seal-wrap reveal on">
+      <svg viewBox="0 0 190 190" fill="none">
+        <defs><path id="rp" d="M95,95 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"/></defs>
+        <circle cx="95" cy="95" r="93" stroke="#A8863F" stroke-opacity=".8" stroke-width="1.6"/>
+        <circle cx="95" cy="95" r="88" stroke="#A8863F" stroke-opacity=".35" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="95" cy="95" r="66" stroke="#1C1814" stroke-opacity=".65" stroke-width="1.4"/>
+        <circle cx="95" cy="95" r="62" stroke="#1C1814" stroke-opacity=".22" stroke-width="1"/>
         <g class="ring-rot">
-          <text font-family="IBM Plex Mono,monospace" font-size="7.2" letter-spacing="2.6" fill="#d9a441" fill-opacity=".85">
-            <textPath href="#ringPath">HDCHINA OFFICIAL GROUP ✦ TELEGRAM ✦ 2023 — 2026 ✦ IN MEMORIAM ✦</textPath>
+          <text font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="3.4" fill="#57503F">
+            <textPath href="#rp">HDCHINA OFFICIAL GROUP · NIGHT WATCH REGISTRY · MMXXIII — MMXXVI ·</textPath>
           </text>
         </g>
-        <text x="80" y="76" text-anchor="middle" font-family="Fraunces,serif" font-size="26" font-weight="600" fill="#e8c47c" letter-spacing="3">HDC</text>
-        <text x="80" y="95" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="10.5" fill="#8fb8cc" letter-spacing="5" text-indent="5">呼唤纪念</text>
-        <path d="M80 104 l3.5 6.5 -3.5 6.5 -3.5 -6.5 z" fill="#d9a441"/>
+        <text x="95" y="93" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="34" fill="#1C1814" letter-spacing="8">守夜</text>
+        <text x="95" y="122" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8F8674" letter-spacing="3">EST. 2023.11.29</text>
+        <path d="M95 130 l3 5.5 -3 5.5 -3 -5.5 z" fill="#9E2B25"/>
       </svg>
     </div>
     <div class="eyebrow reveal">HDChina Official Group · Telegram</div>
-    <h1 class="reveal">每一声呼唤<br>都有回应</h1>
-    <p class="sub reveal">
-      从 <em>2023 年 11 月 29 日</em> 到 <em>2026 年 10 月 1 日</em>，在站点沉睡的一千多个日夜里，
-      群里的灯始终亮着——<em>2,854 位同伴</em>，向守夜的机器人发出了<em> 14,829 次呼唤</em>。
-      每一次验证、每一次签到、每一次查询，都是一句"我还在"。
-    </p>
-    <div class="hr-star reveal"><span>✦</span></div>
+    <h1 class="reveal letterpress">守夜人名册</h1>
+    <div class="h1-sub reveal">The Night Watch Registry</div>
+    <div class="edition reveal">限量印制 · <b>No. <span id="edNo">0001</span></b> of <span>2,854</span></div>
   </header>
 
-  <div class="numbers reveal">
-    <div class="num-card">
-      <div class="num-val"><b data-count="14829">0</b></div>
-      <div class="num-lab">次呼唤</div>
-      <div class="num-note">CALLS MADE</div>
-    </div>
-    <div class="num-card">
-      <div class="num-val"><b data-count="2854">0</b></div>
-      <div class="num-lab">位同伴</div>
-      <div class="num-note">UNIQUE CALLERS</div>
-    </div>
-    <div class="num-card">
-      <div class="num-val"><b data-count="1037">0</b></div>
-      <div class="num-lab">个日夜</div>
-      <div class="num-note">DAYS TOGETHER</div>
+  <div class="rule reveal"><span>卷 首</span></div>
+
+  <!-- ② 卷首 -->
+  <div class="foreword">
+    <div class="vertical reveal letterpress">站点沉睡的一千零三十七个夜晚，有人一直在敲门</div>
+    <div class="foreword-body reveal">
+      <div class="ka">KEEP-ALIVE · <b>14,829</b> PACKETS · NEVER DISCONNECTED<br> SIGNAL ORIGIN — HDCHINA OFFICIAL GROUP</div>
+      <div class="type-block" id="typeBlock"></div>
+      <div class="type-meta">第一声 · <b>2023.11.29 — 07:21:50</b> · 自此夜夜有回音</div>
+      <div class="rebirth">
+        <div class="lab">附 记</div>
+        <p>2023 年 12 月 1 日，Rogers 曾向群内 bot 呼唤过一次 <span class="cmd">/rebirth</span>。<br>两年十个月之后，它应验了。</p>
+      </div>
     </div>
   </div>
 
-  <section class="reveal">
+  <div class="rule reveal"><span>铭 记</span></div>
+
+  <!-- ③ 数字栏 -->
+  <section>
     <div class="sec-head">
-      <div class="k">The First &amp; The Latest</div>
-      <h2>第一声，与最近一声</h2>
+      <div class="k">The Ledger</div>
+      <h2 class="letterpress">此册所记</h2>
+      <div class="s">一千零三十七个昼夜 · 一万四千八百二十九次呼唤 · 两千八百五十四位守夜人</div>
     </div>
-    <div class="calls">
-      <div class="call-card">
-        <div class="tag">故事的开端 · 2023</div>
-        <div class="cmd">/verify<span class="at">@hdchina_group_bot</span></div>
-        <div class="when">2023-11-29 &nbsp;07:21:50</div>
-        <div class="say">一切从一次入群验证开始。彼时谁也不知道，这句命令之后是两千多个日夜的守候。</div>
+    <div class="figures reveal">
+      <div class="fig">
+        <div class="fig-val" data-count="1037">0</div>
+        <div class="fig-lab">个昼夜</div>
+        <div class="fig-note">DAYS ELAPSED</div>
       </div>
-      <div class="link"><span></span></div>
-      <div class="call-card">
-        <div class="tag">灯火未熄 · 今天</div>
-        <div class="cmd">/start<span class="at">@hdchina_mit_bot</span></div>
-        <div class="when">2026-10-01 &nbsp;10:44:50</div>
-        <div class="say">导出这份记录的当天，群里仍在呼唤。故事没有句号，只有逗号——因为我们要回来了。</div>
+      <div class="fig">
+        <div class="fig-val" data-count="14829">0</div>
+        <div class="fig-lab">次呼唤</div>
+        <div class="fig-note">CALLS MADE</div>
+      </div>
+      <div class="fig">
+        <div class="fig-val" data-count="2854">0</div>
+        <div class="fig-lab">位守夜人</div>
+        <div class="fig-note">KEEPERS ON RECORD</div>
+      </div>
+    </div>
+    <div class="dial-row reveal">
+      <div>
+        <div class="dial" id="dial"></div>
+        <div class="dial-cap">年轮 · 四季有声，二〇二四年最盛</div>
       </div>
     </div>
   </section>
 
-  <section class="reveal">
+  <div class="rule reveal"><span>点 名</span></div>
+
+  <!-- ④ 点名簿 -->
+  <section>
     <div class="sec-head">
-      <div class="k">Hall of Bots</div>
-      <h2>被呼唤的守夜人</h2>
+      <div class="k">The Roll Book</div>
+      <h2 class="letterpress">点名簿</h2>
+      <div class="s">一千零三十八天里，一千零零九天有人应到——几乎没有一夜沉默</div>
     </div>
-    <div class="bot-list" id="botList"></div>
+    <div class="rollbook reveal" id="rollbook">
+      <span class="corner tl">ROLL · 2023.11 — 2026.10</span>
+      <span class="corner br">ATTENDANCE 97.2%</span>
+      <div class="heat-months" id="heatMonths"></div>
+      <div class="heat" id="heat"></div>
+      <div class="legend">
+        少
+        <i style="background:rgba(28,24,20,.055)"></i>
+        <i style="background:rgba(158,43,37,.28)"></i>
+        <i style="background:rgba(158,43,37,.52)"></i>
+        <i style="background:rgba(158,43,37,.75)"></i>
+        <i style="background:rgba(158,43,37,.94)"></i>
+        多 · 每点为一日
+      </div>
+      <div class="gauges">
+        <div class="gauge"><div class="v"><em>97.2</em>%</div><div class="k">应到天数占比</div></div>
+        <div class="gauge"><div class="v">1,009<span style="font-size:12px;color:var(--ink-faint)">/1,038</span></div><div class="k">有声之夜</div></div>
+        <div class="gauge"><div class="v"><em>489</em> 天</div><div class="k">最长连续守夜</div></div>
+      </div>
+    </div>
   </section>
 
-  <section class="reveal">
+  <div class="rule reveal"><span>名 录</span></div>
+
+  <!-- ⑤ 守夜人名录 -->
+  <section>
     <div class="sec-head">
-      <div class="k">Year by Year</div>
-      <h2>年年有声</h2>
+      <div class="k">The Registry</div>
+      <h2 class="letterpress">守夜人名录</h2>
+      <div class="s">以入册先后为序 · 不排名次 · 致敬不是竞赛</div>
     </div>
-    <div class="years" id="yearChart"></div>
-    <div class="year-note">* 2026 年统计至 10 月 1 日 · 数据来源：Telegram 群聊完整导出</div>
+    <div class="registry reveal" id="registry">
+      <div class="registry-gold">以下一百九十八人，自二〇二三年入册，至今仍在呼唤</div>
+      <div class="elder-stamp">
+        <svg viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="47" stroke="#9E2B25" stroke-width="2.4"/>
+          <circle cx="50" cy="50" r="41" stroke="#9E2B25" stroke-width="1"/>
+          <text x="50" y="46" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="17" fill="#9E2B25" letter-spacing="2">元老</text>
+          <text x="50" y="66" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#9E2B25" letter-spacing="2">KEEPER</text>
+        </svg>
+      </div>
+      <div class="walls" id="walls"></div>
+      <div class="appendix" id="appendix"></div>
+    </div>
   </section>
 
-  <section class="reveal">
+  <div class="rule reveal"><span>应 门</span></div>
+
+  <!-- ⑥ 七枚铅封 -->
+  <section>
     <div class="sec-head">
-      <div class="k">Top Callers</div>
-      <h2>呼唤最多的人</h2>
+      <div class="k">The Answerers</div>
+      <h2 class="letterpress">七位应门人</h2>
+      <div class="s">被呼唤的 bot · 印为铅封 · 永不磨损</div>
     </div>
-    <div class="callers" id="callerBoard"></div>
+    <div class="leads reveal" id="leads"></div>
+    <div class="leads-cap reveal">它们回应了每一次敲门——无论凌晨四点，还是除夕夜。</div>
   </section>
 
-  <footer class="reveal">
-    <div class="hr-star" style="margin-bottom:56px"><span>✦</span></div>
-    <p class="foot-quote">「种子还在，<br>就总有<b>做种的人</b>。」</p>
-    <div class="foot-sub">
-      HDCHINA 回归纪念<br>
-      <i>数据铭刻于 2026.10.01 · 由 21,648 条群消息中打捞</i>
+  <!-- ⑦ 票根落款 -->
+  <footer>
+    <div class="ticket reveal">
+      <div class="tkc-l">
+        <div class="org">HDChina 守夜同好 · 会订</div>
+        <div class="final letterpress">守夜结束，<br><b>灯，交还站点。</b></div>
+        <div class="sig">二〇二三年冬 记 · 二〇二六年秋 终卷</div>
+      </div>
+      <div class="tkc-r">
+        <div class="no">STUB No. <b id="stubNo">0001</b><br>/ 2,854</div>
+        <div class="stamp" id="stamp">
+          <svg viewBox="0 0 140 140" fill="none">
+            <defs>
+              <filter id="grunge"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+              <path id="sp" d="M70,70 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/>
+            </defs>
+            <g filter="url(#grunge)">
+              <circle cx="70" cy="70" r="66" stroke="#9E2B25" stroke-width="3"/>
+              <circle cx="70" cy="70" r="57" stroke="#9E2B25" stroke-width="1.4"/>
+              <text font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="2.6" fill="#9E2B25">
+                <textPath href="#sp">KEEPER · VERIFIED · NIGHT WATCH COMPLETE ·</textPath>
+              </text>
+              <text x="70" y="64" text-anchor="middle" font-family="Noto Serif SC,serif" font-weight="900" font-size="21" fill="#9E2B25" letter-spacing="4">核销</text>
+              <text x="70" y="84" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="10" fill="#9E2B25" letter-spacing="3">已核讫</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stamptxt">守夜已成</div>
+      </div>
+    </div>
+    <div class="colophon reveal">
+      <span class="row3">RATIO <i>2,854 : 1</i> · MAGIC <i>+14,829</i> · <em>NO H&amp;R — NOBODY LEFT</em></span><br>
+      HDCHINA 回归纪念 · 铭刻于 2026.10.01 · 由 21,648 条群消息打捞而成
     </div>
   </footer>
 
 </main>
+</div>
 
 <script>
-/* ————— 数据 ————— */
-const BOT_STATS = [
-  {name:"hdchina_mit_bot",     calls:7559},
-  {name:"hdchina_group_bot",   calls:6487},
-  {name:"hdchina_op_bot",      calls:428},
-  {name:"hdchina_group_mit",   calls:298},
-  {name:"hdchina_mice_bot",    calls:38},
-  {name:"hdwing_group_bot",    calls:18},
-  {name:"hdchina_mushroom_bot",calls:1},
-];
-const YEARS = [
-  {y:2023, n:3523},{y:2024, n:7116},{y:2025, n:2731},{y:2026, n:1459},
-];
-const CALLERS = [
-  {name:"Optimus Primal",calls:1986},{name:"Alex Wang",calls:417},
-  {name:"Xue Ted",calls:266},{name:"user6194973218",calls:154},
-  {name:"Jian Qi",calls:151},{name:"Lacuisinc",calls:147},
-  {name:"AnMuzhi",calls:137},{name:"Forza Azzurri",calls:136},
-  {name:"MIO",calls:135},{name:"zlei 333",calls:101},
-];
-const TOTAL = 14829;
-const fmt = n => n.toLocaleString("en-US");
+const STATS = {"watch":{"daily":{"2023-11-29":201,"2023-11-30":204,"2023-12-01":294,"2023-12-02":298,"2023-12-03":256,"2023-12-04":195,"2023-12-05":143,"2023-12-06":99,"2023-12-07":108,"2023-12-08":150,"2023-12-09":77,"2023-12-10":48,"2023-12-11":56,"2023-12-12":46,"2023-12-13":78,"2023-12-14":101,"2023-12-15":86,"2023-12-16":107,"2023-12-17":80,"2023-12-18":82,"2023-12-19":77,"2023-12-20":62,"2023-12-21":58,"2023-12-22":57,"2023-12-23":62,"2023-12-24":48,"2023-12-25":37,"2023-12-26":102,"2023-12-27":145,"2023-12-28":31,"2023-12-29":41,"2023-12-30":38,"2023-12-31":56,"2024-01-01":51,"2024-01-02":61,"2024-01-03":36,"2024-01-04":29,"2024-01-05":22,"2024-01-06":24,"2024-01-07":17,"2024-01-08":29,"2024-01-09":47,"2024-01-10":47,"2024-01-11":25,"2024-01-12":34,"2024-01-13":67,"2024-01-14":31,"2024-01-15":21,"2024-01-16":24,"2024-01-17":31,"2024-01-18":23,"2024-01-19":17,"2024-01-20":18,"2024-01-21":29,"2024-01-22":23,"2024-01-23":39,"2024-01-24":41,"2024-01-25":35,"2024-01-26":29,"2024-01-27":49,"2024-01-28":38,"2024-01-29":37,"2024-01-30":36,"2024-01-31":12,"2024-02-01":18,"2024-02-02":31,"2024-02-03":24,"2024-02-04":46,"2024-02-05":19,"2024-02-06":17,"2024-02-07":22,"2024-02-08":15,"2024-02-09":19,"2024-02-10":24,"2024-02-11":35,"2024-02-12":67,"2024-02-13":34,"2024-02-14":30,"2024-02-15":29,"2024-02-16":25,"2024-02-17":25,"2024-02-18":41,"2024-02-19":44,"2024-02-20":36,"2024-02-21":24,"2024-02-22":33,"2024-02-23":40,"2024-02-24":41,"2024-02-25":61,"2024-02-26":43,"2024-02-27":55,"2024-02-28":30,"2024-03-04":33,"2024-03-05":23,"2024-03-06":42,"2024-03-07":43,"2024-03-08":49,"2024-03-09":33,"2024-03-10":22,"2024-03-11":42,"2024-03-12":41,"2024-03-13":30,"2024-03-14":29,"2024-03-15":32,"2024-03-16":23,"2024-03-17":29,"2024-03-18":26,"2024-03-19":40,"2024-03-20":19,"2024-03-21":28,"2024-03-22":37,"2024-03-23":37,"2024-03-24":31,"2024-03-25":36,"2024-03-26":33,"2024-03-27":28,"2024-03-28":37,"2024-03-29":29,"2024-03-30":35,"2024-03-31":28,"2024-04-01":50,"2024-04-02":37,"2024-04-03":30,"2024-04-04":31,"2024-04-05":44,"2024-04-06":31,"2024-04-07":40,"2024-04-08":25,"2024-04-09":25,"2024-04-10":28,"2024-04-11":35,"2024-04-12":30,"2024-04-13":16,"2024-04-14":28,"2024-04-15":22,"2024-04-16":33,"2024-04-17":30,"2024-04-18":25,"2024-04-19":23,"2024-04-20":34,"2024-04-21":26,"2024-04-22":17,"2024-04-23":24,"2024-04-24":20,"2024-04-25":19,"2024-04-26":15,"2024-04-27":17,"2024-04-28":32,"2024-04-29":39,"2024-04-30":25,"2024-05-01":33,"2024-05-02":25,"2024-05-03":31,"2024-05-04":38,"2024-05-05":14,"2024-05-06":35,"2024-05-07":42,"2024-05-08":25,"2024-05-09":20,"2024-05-10":19,"2024-05-11":23,"2024-05-12":30,"2024-05-13":30,"2024-05-14":25,"2024-05-15":21,"2024-05-16":17,"2024-05-17":9,"2024-05-18":21,"2024-05-19":26,"2024-05-20":13,"2024-05-21":20,"2024-05-22":16,"2024-05-23":39,"2024-05-24":25,"2024-05-25":21,"2024-05-26":29,"2024-05-27":31,"2024-05-28":22,"2024-05-29":23,"2024-05-30":18,"2024-05-31":24,"2024-06-01":16,"2024-06-02":13,"2024-06-03":11,"2024-06-04":18,"2024-06-05":7,"2024-06-06":7,"2024-06-07":17,"2024-06-08":27,"2024-06-09":22,"2024-06-10":27,"2024-06-11":23,"2024-06-12":16,"2024-06-13":32,"2024-06-14":25,"2024-06-15":26,"2024-06-16":25,"2024-06-17":2,"2024-06-18":14,"2024-06-19":23,"2024-06-20":15,"2024-06-21":25,"2024-06-22":27,"2024-06-23":24,"2024-06-24":20,"2024-06-25":22,"2024-06-26":13,"2024-06-27":6,"2024-06-28":33,"2024-06-29":19,"2024-06-30":27,"2024-07-01":6,"2024-07-02":8,"2024-07-03":24,"2024-07-04":18,"2024-07-05":15,"2024-07-06":6,"2024-07-07":17,"2024-07-08":25,"2024-07-09":10,"2024-07-10":13,"2024-07-11":19,"2024-07-12":9,"2024-07-13":21,"2024-07-14":20,"2024-07-15":26,"2024-07-16":13,"2024-07-17":10,"2024-07-18":9,"2024-07-19":9,"2024-07-20":8,"2024-07-21":17,"2024-07-22":16,"2024-07-23":13,"2024-07-24":16,"2024-07-25":26,"2024-07-26":18,"2024-07-27":19,"2024-07-28":18,"2024-07-29":14,"2024-07-30":14,"2024-07-31":9,"2024-08-01":7,"2024-08-02":19,"2024-08-03":11,"2024-08-04":12,"2024-08-05":8,"2024-08-06":10,"2024-08-07":6,"2024-08-08":6,"2024-08-09":3,"2024-08-10":13,"2024-08-11":4,"2024-08-12":12,"2024-08-13":14,"2024-08-14":10,"2024-08-15":5,"2024-08-16":7,"2024-08-17":14,"2024-08-18":14,"2024-08-19":10,"2024-08-20":17,"2024-08-21":19,"2024-08-22":9,"2024-08-23":16,"2024-08-24":19,"2024-08-25":7,"2024-08-26":4,"2024-08-27":9,"2024-08-28":6,"2024-08-29":15,"2024-08-30":7,"2024-08-31":14,"2024-09-01":16,"2024-09-02":12,"2024-09-03":10,"2024-09-04":12,"2024-09-05":14,"2024-09-06":11,"2024-09-07":9,"2024-09-08":19,"2024-09-09":5,"2024-09-10":15,"2024-09-11":6,"2024-09-12":12,"2024-09-13":11,"2024-09-14":9,"2024-09-15":18,"2024-09-16":18,"2024-09-17":36,"2024-09-18":12,"2024-09-19":15,"2024-09-20":12,"2024-09-21":6,"2024-09-22":11,"2024-09-23":27,"2024-09-24":25,"2024-09-25":24,"2024-09-26":16,"2024-09-27":8,"2024-09-28":22,"2024-09-29":14,"2024-09-30":9,"2024-10-01":21,"2024-10-02":12,"2024-10-03":17,"2024-10-04":17,"2024-10-05":11,"2024-10-06":16,"2024-10-07":11,"2024-10-08":6,"2024-10-09":9,"2024-10-10":10,"2024-10-11":12,"2024-10-12":9,"2024-10-13":3,"2024-10-14":5,"2024-10-15":5,"2024-10-16":14,"2024-10-17":15,"2024-10-18":9,"2024-10-19":21,"2024-10-20":19,"2024-10-21":13,"2024-10-22":11,"2024-10-23":11,"2024-10-24":12,"2024-10-25":11,"2024-10-26":3,"2024-10-27":13,"2024-10-28":13,"2024-10-29":4,"2024-10-30":13,"2024-10-31":10,"2024-11-01":11,"2024-11-02":7,"2024-11-03":6,"2024-11-04":5,"2024-11-05":11,"2024-11-06":14,"2024-11-07":8,"2024-11-08":6,"2024-11-09":6,"2024-11-10":6,"2024-11-11":6,"2024-11-12":13,"2024-11-13":8,"2024-11-14":7,"2024-11-15":6,"2024-11-16":11,"2024-11-17":10,"2024-11-18":5,"2024-11-19":5,"2024-11-20":8,"2024-11-21":6,"2024-11-22":6,"2024-11-23":9,"2024-11-24":12,"2024-11-25":6,"2024-11-26":6,"2024-11-27":5,"2024-11-28":9,"2024-11-29":13,"2024-11-30":6,"2024-12-01":2,"2024-12-02":3,"2024-12-03":8,"2024-12-04":7,"2024-12-05":6,"2024-12-06":9,"2024-12-07":2,"2024-12-08":8,"2024-12-09":3,"2024-12-10":15,"2024-12-11":9,"2024-12-12":5,"2024-12-13":6,"2024-12-14":4,"2024-12-15":13,"2024-12-16":7,"2024-12-17":18,"2024-12-18":5,"2024-12-19":10,"2024-12-20":7,"2024-12-21":5,"2024-12-22":5,"2024-12-23":6,"2024-12-24":6,"2024-12-25":16,"2024-12-26":10,"2024-12-27":7,"2024-12-28":12,"2024-12-29":7,"2024-12-30":4,"2024-12-31":8,"2025-01-01":13,"2025-01-02":10,"2025-01-03":7,"2025-01-04":12,"2025-01-05":14,"2025-01-06":7,"2025-01-07":3,"2025-01-08":13,"2025-01-09":10,"2025-01-10":11,"2025-01-11":5,"2025-01-12":5,"2025-01-13":4,"2025-01-14":6,"2025-01-15":4,"2025-01-16":2,"2025-01-17":8,"2025-01-18":12,"2025-01-19":7,"2025-01-20":3,"2025-01-21":8,"2025-01-22":10,"2025-01-23":11,"2025-01-24":12,"2025-01-25":4,"2025-01-26":9,"2025-01-27":4,"2025-01-28":14,"2025-01-29":10,"2025-01-30":10,"2025-01-31":4,"2025-02-01":7,"2025-02-02":8,"2025-02-03":8,"2025-02-04":5,"2025-02-05":6,"2025-02-06":10,"2025-02-07":11,"2025-02-08":7,"2025-02-09":13,"2025-02-10":16,"2025-02-11":22,"2025-02-12":10,"2025-02-13":5,"2025-02-14":11,"2025-02-15":8,"2025-02-16":9,"2025-02-17":8,"2025-02-18":12,"2025-02-19":11,"2025-02-20":4,"2025-02-21":9,"2025-02-22":9,"2025-02-23":8,"2025-02-24":4,"2025-02-25":7,"2025-02-26":10,"2025-02-27":24,"2025-02-28":19,"2025-03-01":13,"2025-03-02":16,"2025-03-03":14,"2025-03-04":15,"2025-03-05":9,"2025-03-06":15,"2025-03-07":12,"2025-03-08":21,"2025-03-09":18,"2025-03-10":10,"2025-03-11":13,"2025-03-12":9,"2025-03-13":7,"2025-03-14":6,"2025-03-15":11,"2025-03-16":10,"2025-03-17":9,"2025-03-18":16,"2025-03-19":13,"2025-03-20":7,"2025-03-21":8,"2025-03-22":14,"2025-03-23":12,"2025-03-24":4,"2025-03-25":8,"2025-03-26":4,"2025-03-27":14,"2025-03-28":8,"2025-03-29":4,"2025-03-30":7,"2025-03-31":14,"2025-04-01":15,"2025-04-02":16,"2025-04-03":6,"2025-04-04":11,"2025-04-05":10,"2025-04-06":10,"2025-04-07":14,"2025-04-08":17,"2025-04-09":4,"2025-04-10":10,"2025-04-11":12,"2025-04-12":5,"2025-04-13":6,"2025-04-14":11,"2025-04-15":20,"2025-04-16":10,"2025-04-17":7,"2025-04-18":6,"2025-04-19":10,"2025-04-20":3,"2025-04-21":9,"2025-04-22":8,"2025-04-23":9,"2025-04-24":16,"2025-04-25":8,"2025-04-26":7,"2025-04-27":5,"2025-04-28":11,"2025-04-29":10,"2025-04-30":6,"2025-05-01":10,"2025-05-02":6,"2025-05-03":9,"2025-05-04":7,"2025-05-05":7,"2025-05-06":4,"2025-05-07":8,"2025-05-08":6,"2025-05-09":6,"2025-05-10":14,"2025-05-11":2,"2025-05-12":17,"2025-05-13":9,"2025-05-14":10,"2025-05-15":7,"2025-05-16":6,"2025-05-17":7,"2025-05-18":13,"2025-05-19":17,"2025-05-20":23,"2025-05-21":20,"2025-05-22":17,"2025-05-23":9,"2025-05-24":9,"2025-05-25":5,"2025-05-26":8,"2025-05-27":15,"2025-05-28":5,"2025-05-29":7,"2025-05-30":2,"2025-05-31":4,"2025-06-01":8,"2025-06-02":7,"2025-06-03":9,"2025-06-04":10,"2025-06-05":7,"2025-06-06":7,"2025-06-07":10,"2025-06-08":7,"2025-06-09":4,"2025-06-10":3,"2025-06-11":7,"2025-06-12":8,"2025-06-13":7,"2025-06-14":6,"2025-06-15":3,"2025-06-16":15,"2025-06-17":7,"2025-06-18":10,"2025-06-19":7,"2025-06-20":6,"2025-06-21":8,"2025-06-22":11,"2025-06-23":5,"2025-06-24":5,"2025-06-25":6,"2025-06-26":1,"2025-06-27":8,"2025-06-28":4,"2025-06-29":12,"2025-06-30":5,"2025-07-01":6,"2025-07-02":5,"2025-07-03":5,"2025-07-04":6,"2025-07-05":7,"2025-07-07":9,"2025-07-08":5,"2025-07-09":1,"2025-07-10":8,"2025-07-11":4,"2025-07-12":9,"2025-07-13":14,"2025-07-14":3,"2025-07-15":6,"2025-07-16":8,"2025-07-18":4,"2025-07-19":6,"2025-07-20":12,"2025-07-21":6,"2025-07-22":5,"2025-07-23":7,"2025-07-24":6,"2025-07-25":7,"2025-07-26":2,"2025-07-27":4,"2025-07-28":6,"2025-07-29":9,"2025-07-30":1,"2025-07-31":12,"2025-08-01":8,"2025-08-02":6,"2025-08-03":4,"2025-08-04":3,"2025-08-05":5,"2025-08-06":14,"2025-08-07":4,"2025-08-08":3,"2025-08-09":8,"2025-08-10":3,"2025-08-11":6,"2025-08-12":4,"2025-08-14":4,"2025-08-15":5,"2025-08-16":13,"2025-08-17":8,"2025-08-18":10,"2025-08-19":7,"2025-08-20":6,"2025-08-21":6,"2025-08-22":3,"2025-08-23":4,"2025-08-24":3,"2025-08-25":4,"2025-08-26":5,"2025-08-27":5,"2025-08-28":9,"2025-08-29":5,"2025-08-30":7,"2025-08-31":11,"2025-09-01":10,"2025-09-02":1,"2025-09-03":9,"2025-09-04":5,"2025-09-05":5,"2025-09-06":6,"2025-09-07":5,"2025-09-08":6,"2025-09-09":10,"2025-09-10":5,"2025-09-11":4,"2025-09-12":4,"2025-09-13":6,"2025-09-14":3,"2025-09-15":5,"2025-09-16":9,"2025-09-17":4,"2025-09-18":9,"2025-09-19":8,"2025-09-20":1,"2025-09-21":10,"2025-09-22":3,"2025-09-23":4,"2025-09-24":5,"2025-09-25":5,"2025-09-26":4,"2025-09-27":6,"2025-09-28":7,"2025-09-29":4,"2025-09-30":3,"2025-10-01":3,"2025-10-02":5,"2025-10-03":2,"2025-10-04":4,"2025-10-05":3,"2025-10-06":4,"2025-10-07":11,"2025-10-08":7,"2025-10-09":5,"2025-10-10":9,"2025-10-11":6,"2025-10-12":14,"2025-10-13":8,"2025-10-14":5,"2025-10-15":4,"2025-10-16":10,"2025-10-17":7,"2025-10-18":5,"2025-10-19":6,"2025-10-20":3,"2025-10-21":7,"2025-10-22":8,"2025-10-23":3,"2025-10-24":5,"2025-10-25":4,"2025-10-26":4,"2025-10-27":5,"2025-10-28":1,"2025-10-29":11,"2025-10-30":5,"2025-10-31":7,"2025-11-01":14,"2025-11-02":4,"2025-11-03":4,"2025-11-04":11,"2025-11-05":8,"2025-11-06":5,"2025-11-07":5,"2025-11-08":12,"2025-11-09":12,"2025-11-10":7,"2025-11-11":6,"2025-11-12":3,"2025-11-13":3,"2025-11-14":2,"2025-11-15":4,"2025-11-16":4,"2025-11-17":3,"2025-11-18":14,"2025-11-19":4,"2025-11-20":3,"2025-11-21":7,"2025-11-23":6,"2025-11-24":2,"2025-11-25":4,"2025-11-26":4,"2025-11-27":2,"2025-11-28":8,"2025-11-29":4,"2025-11-30":6,"2025-12-01":5,"2025-12-02":5,"2025-12-03":9,"2025-12-04":10,"2025-12-05":2,"2025-12-06":3,"2025-12-07":2,"2025-12-08":2,"2025-12-09":5,"2025-12-11":4,"2025-12-12":4,"2025-12-13":2,"2025-12-14":5,"2025-12-15":7,"2025-12-16":11,"2025-12-17":3,"2025-12-18":10,"2025-12-19":10,"2025-12-20":1,"2025-12-21":8,"2025-12-22":13,"2025-12-23":8,"2025-12-24":6,"2025-12-25":9,"2025-12-26":1,"2025-12-27":7,"2025-12-28":8,"2025-12-29":2,"2025-12-30":9,"2025-12-31":8,"2026-01-01":9,"2026-01-02":13,"2026-01-03":12,"2026-01-04":3,"2026-01-05":12,"2026-01-06":9,"2026-01-07":4,"2026-01-08":3,"2026-01-09":5,"2026-01-10":9,"2026-01-11":15,"2026-01-12":6,"2026-01-13":5,"2026-01-14":5,"2026-01-15":5,"2026-01-16":5,"2026-01-17":9,"2026-01-18":9,"2026-01-19":4,"2026-01-20":7,"2026-01-21":8,"2026-01-22":2,"2026-01-23":8,"2026-01-24":4,"2026-01-25":7,"2026-01-26":14,"2026-01-27":9,"2026-01-28":5,"2026-01-29":9,"2026-01-30":8,"2026-01-31":12,"2026-02-01":13,"2026-02-02":5,"2026-02-03":21,"2026-02-04":11,"2026-02-05":5,"2026-02-06":5,"2026-02-07":12,"2026-02-08":18,"2026-02-09":15,"2026-02-10":8,"2026-02-11":4,"2026-02-12":13,"2026-02-13":9,"2026-02-14":10,"2026-02-15":2,"2026-02-16":2,"2026-02-17":7,"2026-02-18":2,"2026-02-19":15,"2026-02-20":11,"2026-02-21":14,"2026-02-22":6,"2026-02-23":11,"2026-02-24":2,"2026-02-25":2,"2026-02-26":8,"2026-02-27":2,"2026-02-28":5,"2026-03-01":2,"2026-03-02":3,"2026-03-03":4,"2026-03-04":3,"2026-03-05":2,"2026-03-06":6,"2026-03-07":7,"2026-03-08":6,"2026-03-09":6,"2026-03-10":6,"2026-03-11":2,"2026-03-12":9,"2026-03-13":7,"2026-03-14":1,"2026-03-15":8,"2026-03-16":3,"2026-03-17":4,"2026-03-18":6,"2026-03-20":4,"2026-03-21":3,"2026-03-22":11,"2026-03-23":3,"2026-03-24":11,"2026-03-25":2,"2026-03-26":3,"2026-03-27":4,"2026-03-28":7,"2026-03-29":5,"2026-03-30":11,"2026-03-31":4,"2026-04-01":5,"2026-04-02":5,"2026-04-03":9,"2026-04-04":3,"2026-04-05":6,"2026-04-06":4,"2026-04-07":8,"2026-04-08":9,"2026-04-09":5,"2026-04-10":5,"2026-04-11":4,"2026-04-12":6,"2026-04-13":4,"2026-04-15":6,"2026-04-16":6,"2026-04-17":4,"2026-04-18":5,"2026-04-19":5,"2026-04-20":2,"2026-04-21":2,"2026-04-22":3,"2026-04-23":5,"2026-04-24":4,"2026-04-25":3,"2026-04-26":4,"2026-04-27":3,"2026-04-28":8,"2026-04-29":10,"2026-04-30":4,"2026-05-01":11,"2026-05-03":9,"2026-05-05":2,"2026-05-06":3,"2026-05-08":2,"2026-05-09":7,"2026-05-10":5,"2026-05-11":4,"2026-05-12":3,"2026-05-13":2,"2026-05-14":5,"2026-05-15":2,"2026-05-16":5,"2026-05-17":6,"2026-05-18":1,"2026-05-19":3,"2026-05-20":3,"2026-05-21":2,"2026-05-22":3,"2026-05-23":8,"2026-05-25":3,"2026-05-26":5,"2026-05-27":3,"2026-05-28":3,"2026-05-29":5,"2026-05-30":2,"2026-05-31":6,"2026-06-01":1,"2026-06-02":3,"2026-06-04":4,"2026-06-06":4,"2026-06-07":5,"2026-06-08":3,"2026-06-09":3,"2026-06-11":4,"2026-06-13":3,"2026-06-14":1,"2026-06-15":3,"2026-06-16":1,"2026-06-17":3,"2026-06-18":4,"2026-06-19":4,"2026-06-20":3,"2026-06-21":3,"2026-06-24":4,"2026-06-25":5,"2026-06-26":2,"2026-06-27":2,"2026-06-28":4,"2026-06-30":3,"2026-07-01":3,"2026-07-02":3,"2026-07-04":5,"2026-07-05":3,"2026-07-06":2,"2026-07-07":3,"2026-07-08":2,"2026-07-09":1,"2026-07-10":5,"2026-07-11":3,"2026-07-12":1,"2026-07-13":3,"2026-07-14":7,"2026-07-15":3,"2026-07-17":2,"2026-07-18":2,"2026-07-19":6,"2026-07-20":4,"2026-07-21":11,"2026-07-22":2,"2026-07-25":1,"2026-07-26":4,"2026-07-27":4,"2026-07-28":4,"2026-07-29":1,"2026-07-30":2,"2026-08-01":3,"2026-08-02":1,"2026-08-03":5,"2026-08-04":3,"2026-08-05":2,"2026-08-06":4,"2026-08-07":4,"2026-08-08":3,"2026-08-09":5,"2026-08-10":2,"2026-08-11":3,"2026-08-12":6,"2026-08-13":1,"2026-08-14":5,"2026-08-15":5,"2026-08-16":6,"2026-08-18":6,"2026-08-19":6,"2026-08-20":1,"2026-08-21":4,"2026-08-22":5,"2026-08-23":7,"2026-08-24":6,"2026-08-25":12,"2026-08-26":12,"2026-08-27":5,"2026-08-28":7,"2026-08-29":6,"2026-08-30":4,"2026-08-31":11,"2026-09-01":7,"2026-09-02":4,"2026-09-03":4,"2026-09-04":3,"2026-09-05":5,"2026-09-06":9,"2026-09-07":9,"2026-09-08":6,"2026-09-09":5,"2026-09-10":4,"2026-09-11":4,"2026-09-12":8,"2026-09-14":8,"2026-09-15":5,"2026-09-16":2,"2026-09-17":6,"2026-09-18":2,"2026-09-19":4,"2026-09-20":13,"2026-09-21":13,"2026-09-22":4,"2026-09-23":1,"2026-09-24":8,"2026-09-25":5,"2026-09-26":23,"2026-09-27":23,"2026-09-28":12,"2026-09-29":18,"2026-09-30":22,"2026-10-01":27},"monthly":{"2023-11":405,"2023-12":3118,"2024-01":1022,"2024-02":928,"2024-03":915,"2024-04":851,"2024-05":765,"2024-06":582,"2024-07":466,"2024-08":327,"2024-09":434,"2024-10":356,"2024-11":237,"2024-12":233,"2025-01":252,"2025-02":281,"2025-03":341,"2025-04":292,"2025-05":289,"2025-06":213,"2025-07":183,"2025-08":183,"2025-09":166,"2025-10":181,"2025-11":171,"2025-12":179,"2026-01":235,"2026-02":238,"2026-03":153,"2026-04":147,"2026-05":113,"2026-06":72,"2026-07":87,"2026-08":150,"2026-09":237,"2026-10":27},"watchers":[{"name":"1 1","first":"2023-11-29"},{"name":"; TRUNCATE TABLE user_data; --","first":"2023-11-29"},{"name":"Jacket","first":"2023-11-29"},{"name":"Jun","first":"2023-11-29"},{"name":"KEVIN YOUNG","first":"2023-11-29"},{"name":"Leo YY","first":"2023-11-29"},{"name":"M","first":"2023-11-29"},{"name":"c z","first":"2023-11-29"},{"name":"fly high","first":"2023-11-29"},{"name":"gump","first":"2023-11-29"},{"name":"gz gz","first":"2023-11-29"},{"name":"joe306","first":"2023-11-29"},{"name":"krik Ren","first":"2023-11-29"},{"name":"looo p","first":"2023-11-29"},{"name":"mcv vec","first":"2023-11-29"},{"name":"wang","first":"2023-11-29"},{"name":"yy_004","first":"2023-11-29"},{"name":"幻影 景天","first":"2023-11-29"},{"name":"永恒绝恋","first":"2023-11-29"},{"name":"火锅就吃火锅底料","first":"2023-11-29"},{"name":"给来杯Venti拿铁","first":"2023-11-29"},{"name":"Andy Jordan","first":"2023-11-30"},{"name":"Jay Zhou","first":"2023-11-30"},{"name":"Jian Qi","first":"2023-11-30"},{"name":"Joe","first":"2023-11-30"},{"name":"Joe","first":"2023-11-30"},{"name":"Neo Lao","first":"2023-11-30"},{"name":"Nocap","first":"2023-11-30"},{"name":"Star","first":"2023-11-30"},{"name":"coffee co","first":"2023-11-30"},{"name":"raul yl","first":"2023-11-30"},{"name":"rebinson","first":"2023-11-30"},{"name":"sunina","first":"2023-11-30"},{"name":"一口草莓包饭","first":"2023-11-30"},{"name":"红糖茶放盐","first":"2023-11-30"},{"name":"龘 燚","first":"2023-11-30"},{"name":"CC","first":"2023-12-01"},{"name":"Eddie Sun","first":"2023-12-01"},{"name":"Future Jeff","first":"2023-12-01"},{"name":"J","first":"2023-12-01"},{"name":"Le Anges","first":"2023-12-01"},{"name":"Longtf","first":"2023-12-01"},{"name":"Null","first":"2023-12-01"},{"name":"Potato","first":"2023-12-01"},{"name":"Simon Lei","first":"2023-12-01"},{"name":"Voodoo","first":"2023-12-01"},{"name":"William Mong","first":"2023-12-01"},{"name":"Xino","first":"2023-12-01"},{"name":"aksh mato","first":"2023-12-01"},{"name":"damji rrmea","first":"2023-12-01"},{"name":"haotian kang","first":"2023-12-01"},{"name":"no one","first":"2023-12-01"},{"name":"ooo yyy","first":"2023-12-01"},{"name":"ss 886","first":"2023-12-01"},{"name":"xizhi","first":"2023-12-01"},{"name":"zhenliang gan","first":"2023-12-01"},{"name":"zlei 333","first":"2023-12-01"},{"name":"矗磊 刘","first":"2023-12-01"},{"name":"碧 何","first":"2023-12-01"},{"name":"茶 咖啡","first":"2023-12-01"},{"name":"龍一郎 工藤","first":"2023-12-01"},{"name":"1043","first":"2023-12-02"},{"name":"Ah- ah","first":"2023-12-02"},{"name":"DE VE","first":"2023-12-02"},{"name":"Fung","first":"2023-12-02"},{"name":"Gang Wang","first":"2023-12-02"},{"name":"Hi Hsi","first":"2023-12-02"},{"name":"Jia Dingren","first":"2023-12-02"},{"name":"MG HT","first":"2023-12-02"},{"name":"Ming Yang","first":"2023-12-02"},{"name":"ProD","first":"2023-12-02"},{"name":"Shogun","first":"2023-12-02"},{"name":"SorenSong","first":"2023-12-02"},{"name":"googooog","first":"2023-12-02"},{"name":"stardust","first":"2023-12-02"},{"name":"wang yunfeng","first":"2023-12-02"},{"name":"…","first":"2023-12-02"},{"name":"七月 的风","first":"2023-12-02"},{"name":"不要问我从哪里来","first":"2023-12-02"},{"name":"我不是赌神","first":"2023-12-02"},{"name":"深入人心 🅥|̲̅S̲̅V̲̅I̲̅P̲̅|̲̅M̲̅A̲̅X̲̅|","first":"2023-12-02"},{"name":"王小木","first":"2023-12-02"},{"name":"红果","first":"2023-12-02"},{"name":"Anynook","first":"2023-12-03"},{"name":"Bobby King","first":"2023-12-03"},{"name":"Mr. Goodbye","first":"2023-12-03"},{"name":"ouwen yuehan","first":"2023-12-03"},{"name":"wuming","first":"2023-12-03"},{"name":"上个网不容易","first":"2023-12-03"},{"name":"乐乐","first":"2023-12-03"},{"name":"Evan","first":"2023-12-04"},{"name":"Fibe Cui","first":"2023-12-04"},{"name":"Jin Xia","first":"2023-12-04"},{"name":"Ming","first":"2023-12-04"},{"name":"Snail_Dong","first":"2023-12-04"},{"name":"Voo Doo","first":"2023-12-04"},{"name":"bill sam","first":"2023-12-04"},{"name":"hijakke","first":"2023-12-04"},{"name":"xu yi","first":"2023-12-04"},{"name":"zzchgwg","first":"2023-12-04"},{"name":"公子","first":"2023-12-04"},{"name":"成龙 lee","first":"2023-12-04"},{"name":"Amoy Turbo","first":"2023-12-05"},{"name":"James Lau","first":"2023-12-05"},{"name":"MidAutumn J","first":"2023-12-05"},{"name":"Sodiumf0x","first":"2023-12-05"},{"name":"laniakea galaxy","first":"2023-12-05"},{"name":"lazio 818","first":"2023-12-05"},{"name":"lottelucky","first":"2023-12-05"},{"name":"piao yi","first":"2023-12-05"},{"name":"乔 罗伯特","first":"2023-12-05"},{"name":"伯伯家的 鸡","first":"2023-12-05"},{"name":"戴眼镜的喵先森","first":"2023-12-05"},{"name":"晓晨","first":"2023-12-05"},{"name":"若水","first":"2023-12-05"},{"name":"被铁丝箍住的 南瓜","first":"2023-12-05"},{"name":"这周 一点都不二","first":"2023-12-05"},{"name":"Happy401097818","first":"2023-12-06"},{"name":"Jteam","first":"2023-12-06"},{"name":"Terry K","first":"2023-12-06"},{"name":"mo mo","first":"2023-12-06"},{"name":"Мэн С. 😅","first":"2023-12-06"},{"name":"椑子｡◕‿◕｡","first":"2023-12-06"},{"name":"Ede","first":"2023-12-07"},{"name":"Ha","first":"2023-12-07"},{"name":"Pony Wong","first":"2023-12-07"},{"name":"newkids sp","first":"2023-12-07"},{"name":"Metalmaster","first":"2023-12-08"},{"name":"Shushi Shen","first":"2023-12-08"},{"name":"Tian W","first":"2023-12-08"},{"name":"Wu Tao","first":"2023-12-08"},{"name":"Lucas","first":"2023-12-09"},{"name":"WTF","first":"2023-12-09"},{"name":"waiting sun","first":"2023-12-09"},{"name":"再见樱花","first":"2023-12-09"},{"name":"嘻嘻哈哈","first":"2023-12-09"},{"name":"小菊","first":"2023-12-09"},{"name":"Gatsby Van","first":"2023-12-10"},{"name":"Arte Yao","first":"2023-12-11"},{"name":"Jesse @kongke2bot 永旺社工库 典我简届一诺社工库","first":"2023-12-11"},{"name":"di li","first":"2023-12-11"},{"name":"jason wu","first":"2023-12-11"},{"name":"Hskey8","first":"2023-12-12"},{"name":"Akira","first":"2023-12-13"},{"name":"J","first":"2023-12-13"},{"name":"qingrun li","first":"2023-12-13"},{"name":"冰岛不插电","first":"2023-12-13"},{"name":"Alex Wang","first":"2023-12-14"},{"name":"Frank","first":"2023-12-14"},{"name":"chio yang","first":"2023-12-14"},{"name":"tong liu","first":"2023-12-14"},{"name":"抢救一下","first":"2023-12-14"},{"name":"Ethan Woo","first":"2023-12-15"},{"name":"Ran Meng","first":"2023-12-15"},{"name":"Y J","first":"2023-12-15"},{"name":"ppppppppo longlong","first":"2023-12-15"},{"name":"rainerdu","first":"2023-12-15"},{"name":"鱼","first":"2023-12-15"},{"name":"Y Libra","first":"2023-12-16"},{"name":"hdupan","first":"2023-12-16"},{"name":"hh H","first":"2023-12-16"},{"name":"kk","first":"2023-12-16"},{"name":"wen bolwm","first":"2023-12-16"},{"name":"Allan Xin","first":"2023-12-17"},{"name":"Damon","first":"2023-12-17"},{"name":"Kong X","first":"2023-12-17"},{"name":"Yaşar","first":"2023-12-17"},{"name":"vwal","first":"2023-12-17"},{"name":"Kevin Yang","first":"2023-12-18"},{"name":"abcer hk","first":"2023-12-18"},{"name":"weili888 weili888","first":"2023-12-18"},{"name":"zdong","first":"2023-12-18"},{"name":"夏威夷","first":"2023-12-18"},{"name":"A J","first":"2023-12-19"},{"name":"Leon CC","first":"2023-12-19"},{"name":"user1064625659","first":"2023-12-19"},{"name":"王 老板","first":"2023-12-19"},{"name":"F","first":"2023-12-21"},{"name":"L L","first":"2023-12-21"},{"name":"VanWen","first":"2023-12-21"},{"name":"CJETMYY","first":"2023-12-22"},{"name":"Gavin Wei","first":"2023-12-22"},{"name":"70 KG","first":"2023-12-23"},{"name":"fine fine","first":"2023-12-23"},{"name":"z sid","first":"2023-12-23"},{"name":"0xManyu__","first":"2023-12-24"},{"name":"Yuki","first":"2023-12-24"},{"name":"dd lq","first":"2023-12-24"},{"name":"ning tang","first":"2023-12-24"},{"name":"anaheimstudio","first":"2023-12-25"},{"name":"G7","first":"2023-12-26"},{"name":"TouPiX","first":"2023-12-26"},{"name":"eva green","first":"2023-12-26"},{"name":"Ray","first":"2023-12-27"},{"name":"monster","first":"2023-12-27"},{"name":"wxrbbs wxrbbs","first":"2023-12-27"},{"name":"长弓","first":"2023-12-27"},{"name":"大道無門","first":"2023-12-29"}]},"top_callers":[{"name":"Optimus Primal","calls":1986},{"name":"Alex Wang","calls":417},{"name":"Xue Ted","calls":266},{"name":"user6194973218","calls":154},{"name":"Jian Qi","calls":151},{"name":"Lacuisinc","calls":147},{"name":"AnMuzhi","calls":137},{"name":"Forza Azzurri","calls":136},{"name":"MIO","calls":135},{"name":"zlei 333","calls":101}]};
 
-/* ————— bot 榜单 ————— */
-const medals = ["🥇","🥈","🥉"];
-const maxBot = BOT_STATS[0].calls;
-document.getElementById("botList").innerHTML = BOT_STATS.map((b,i)=>{
-  const top3 = i < 3;
-  const w = Math.max(b.calls / maxBot * 100, b.calls > 0 ? 0.9 : 0);
-  return `<div class="bot-row${top3?" top3":""}">
-    <div class="bot-rank">${String(i+1).padStart(2,"0")}</div>
-    <div class="bot-main">
-      <div class="bot-name">${top3?`<span class="medal">${medals[i]}</span>`:""}@${b.name}</div>
-      <div class="bot-bar-wrap"><div class="bot-bar" data-w="${w}"></div></div>
-    </div>
-    <div class="bot-count">${fmt(b.calls)}<small>次</small></div>
-  </div>`;
-}).join("");
+/* 转义：聊天导出的用户名属不可控文本，入墙前一律转义 */
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-/* ————— 年度柱 ————— */
-const maxYear = Math.max(...YEARS.map(y=>y.n));
-document.getElementById("yearChart").innerHTML = YEARS.map(y=>{
-  const h = Math.max(y.n / maxYear * 100, 6);
-  return `<div class="year-col">
-    <div class="year-val">${fmt(y.n)}</div>
-    <div class="year-bar" data-h="${h}"></div>
-    <div class="year-lab">${y.y}</div>
-  </div>`;
-}).join("");
+/* ————— 编号 ————— */
+const ed = String(1 + Math.floor(Math.random() * 2854)).padStart(4, "0");
+document.getElementById("edNo").textContent = ed;
+document.getElementById("stubNo").textContent = ed;
 
-/* ————— 呼唤者榜 ————— */
-document.getElementById("callerBoard").innerHTML = CALLERS.map((c,i)=>`
-  <div class="crow${i===0?" first":""}">
-    <div class="r">${i===0?"★":String(i+1).padStart(2,"0")}</div>
-    <div class="n">${c.name}</div>
-    <div class="c">${fmt(c.calls)}<small> 次</small></div>
-  </div>`).join("");
+/* ————— 铅字块：第一声 /verify@hdchina_group_bot ————— */
+const FIRST = "/verify@hdchina_group_bot";
+document.getElementById("typeBlock").innerHTML = [...FIRST].map(c =>
+  `<span class="ch${c === "/" ? " red" : ""}">${esc(c)}</span>`).join("");
 
-/* ————— 滚动浮现 + 计数 + 图形生长 ————— */
-const ease = t => 1 - Math.pow(1-t, 3);
+/* ————— 年轮表盘 ————— */
+(function(){
+  const byYear = {2023:3523, 2024:7116, 2025:2731, 2026:1459};
+  const total = Object.values(byYear).reduce((a,b)=>a+b,0);
+  const R = 118, C = 2 * Math.PI * R, GAP = 10;
+  let off = 0;
+  const segs = Object.entries(byYear).map(([y,n])=>{
+    const len = C * n / total - GAP;
+    const seg = `<circle cx="150" cy="150" r="${R}" fill="none" stroke="#A8863F" stroke-width="13"
+      stroke-dasharray="${len.toFixed(1)} ${(C-len).toFixed(1)}" stroke-dashoffset="${(-off).toFixed(1)}" stroke-linecap="butt"/>`;
+    const midA = (off + GAP/2 + len/2) / C * 360 - 90;
+    const rad = midA * Math.PI / 180;
+    const lx = 150 + Math.cos(rad) * (R - 34), ly = 150 + Math.sin(rad) * (R - 34) + 3;
+    const lab = `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle"
+      font-family="IBM Plex Mono,monospace" font-size="11" fill="#57503F">${esc(y)}</text>`;
+    off += C * n / total;
+    return seg + lab;
+  }).join("");
+  let ticks = "";
+  for(let i = 0; i < 72; i++){
+    const a = i / 72 * 2 * Math.PI;
+    const r1 = R + 12, r2 = R + (i % 18 === 0 ? 20 : 16);
+    ticks += `<line x1="${(150+Math.cos(a)*r1).toFixed(1)}" y1="${(150+Math.sin(a)*r1).toFixed(1)}"
+      x2="${(150+Math.cos(a)*r2).toFixed(1)}" y2="${(150+Math.sin(a)*r2).toFixed(1)}"
+      stroke="#1C1814" stroke-opacity="${i % 18 === 0 ? .55 : .22}" stroke-width="1"/>`;
+  }
+  document.getElementById("dial").innerHTML =
+    `<svg viewBox="0 0 300 300">${ticks}${segs}
+     <circle cx="150" cy="150" r="86" fill="none" stroke="#1C1814" stroke-opacity=".18" stroke-width="1"/></svg>
+     <div class="dial-center"><div class="n">1,037</div><div class="t">昼夜</div></div>`;
+})();
+
+/* ————— 点名簿：月×日 朱记 ————— */
+(function(){
+  const daily = STATS.watch.daily;
+  const months = Object.keys(STATS.watch.monthly); // 36 个月
+  const cells = [], labels = [];
+  months.forEach((m, mi) => {
+    const [y, mm] = m.split("-");
+    const isNewYear = mm === "01" || mi === 0;
+    labels.push(`<span class="${isNewYear ? "yr" : ""}" title="${esc(m)}">${esc(isNewYear ? y.slice(2) : mm)}</span>`);
+    const dim = new Date(+y, +mm, 0).getDate();
+    for(let d = 1; d <= 31; d++){
+      if(d > dim){ cells.push(`<i class="cell void" style="--d:${mi * 14}ms"></i>`); continue; }
+      const key = `${y}-${mm}-${String(d).padStart(2,"0")}`;
+      const n = daily[key] || 0;
+      const lv = n === 0 ? "" : n < 2 ? "h1" : n < 5 ? "h2" : n < 10 ? "h3" : "h4";
+      cells.push(`<i class="cell ${lv}" style="--d:${mi * 14}ms" title="${esc(key)} · ${n} 次"></i>`);
+    }
+  });
+  document.getElementById("heatMonths").innerHTML = labels.join("");
+  document.getElementById("heat").innerHTML = cells.join("");
+})();
+
+/* ————— 守夜人名录墙 ————— */
+(function(){
+  const ws = STATS.watch.watchers;
+  document.getElementById("walls").innerHTML = ws.map(w => {
+    const [, m, d] = w.first.split("-");
+    return `<div class="w"><b>${esc(w.name)}</b><span>${+m}.${+d}</span></div>`;
+  }).join("");
+  const top = STATS.top_callers.slice(0, 3);
+  document.getElementById("appendix").innerHTML =
+    `另录：此间呼唤最勤者，为 <b>${esc(top[0].name)}</b>（${top[0].calls.toLocaleString()} 声）、<b>${esc(top[1].name)}</b>（${top[1].calls.toLocaleString()} 声）、<b>${esc(top[2].name)}</b>（${top[2].calls.toLocaleString()} 声）。名册不以此论序——守夜从不论声量，只论在场。`;
+})();
+
+/* ————— 七枚铅封 ————— */
+(function(){
+  const B = [
+    {s:"MIT",  n:"hdchina_mit_bot",     c:7559},
+    {s:"GRP",  n:"hdchina_group_bot",   c:6487},
+    {s:"OP",   n:"hdchina_op_bot",      c:428},
+    {s:"G·MT", n:"hdchina_group_mit",   c:298},
+    {s:"MCE",  n:"hdchina_mice_bot",    c:38},
+    {s:"HDW",  n:"hdwing_group_bot",    c:18},
+    {s:"MSH",  n:"hdchina_mushroom_bot",c:1},
+  ];
+  const maxC = B[0].c;
+  document.getElementById("leads").innerHTML = B.map((b, i) => {
+    const size = Math.round(46 + 68 * Math.sqrt(b.c / maxC));
+    const fs = Math.max(10, Math.round(size * .19));
+    return `<div class="lead${i === 0 ? " big" : ""}">
+      <div class="lead-stamp" style="width:${size}px;height:${size}px;font-size:${fs}px">${esc(b.s)}</div>
+      <div class="lead-name">@${esc(b.n)}</div>
+      <div class="lead-cnt">回应了 ${b.c.toLocaleString()} 次</div>
+    </div>`;
+  }).join("");
+})();
+
+/* ————— 滚动：浮现 / 计数 / 盖章 ————— */
+const ease = t => 1 - Math.pow(1 - t, 3);
 function countUp(el, target, dur){
   const t0 = performance.now();
   (function tick(now){
     const p = Math.min((now - t0) / dur, 1);
-    el.textContent = fmt(Math.round(target * ease(p)));
+    el.textContent = Math.round(target * ease(p)).toLocaleString("en-US");
     if(p < 1) requestAnimationFrame(tick);
   })(t0);
 }
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
     if(!e.isIntersecting) return;
     const el = e.target;
     el.classList.add("on");
-    el.querySelectorAll("[data-count]").forEach(b => countUp(b, +b.dataset.count, 1900));
-    el.querySelectorAll(".bot-bar").forEach((bar,i) =>
-      setTimeout(() => bar.style.width = bar.dataset.w + "%", 120 + i*90));
-    el.querySelectorAll(".year-bar").forEach((bar,i) =>
-      setTimeout(() => bar.style.height = bar.dataset.h + "%", 150 + i*110));
+    el.querySelectorAll("[data-count]").forEach(b => countUp(b, +b.dataset.count, 1800));
+    const stamp = el.querySelector(".stamp");
+    if(stamp) setTimeout(() => stamp.classList.add("on"), 520);
     io.unobserve(el);
   });
-},{threshold:.18});
+}, {threshold: 0});
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-/* ————— 夜空：星与流星 ————— */
-const cv = document.getElementById("sky"), cx = cv.getContext("2d");
-let W, H, stars = [], meteor = null, dpr = Math.min(devicePixelRatio || 1, 2);
-function resize(){
-  W = innerWidth; H = innerHeight;
-  cv.width = W * dpr; cv.height = H * dpr;
-  cv.style.width = W + "px"; cv.style.height = H + "px";
-  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const n = Math.min(130, Math.round(W * H / 12000));
-  stars = Array.from({length:n}, () => ({
-    x: Math.random()*W, y: Math.random()*H,
-    r: Math.random()*1.15 + .25,
-    p: Math.random()*Math.PI*2,
-    s: .4 + Math.random()*1.2,
-    warm: Math.random() < .3,
-  }));
-}
-resize();
-addEventListener("resize", resize);
-
-let nextMeteor = 2400;
-function draw(now){
-  cx.clearRect(0,0,W,H);
-  for(const st of stars){
-    const tw = .45 + .55 * Math.sin(st.p + now*.001*st.s);
-    cx.globalAlpha = tw * .85;
-    cx.fillStyle = st.warm ? "#e8c47c" : "#cfe0ec";
-    cx.beginPath();
-    cx.arc(st.x, st.y, st.r, 0, 7);
-    cx.fill();
-  }
-  cx.globalAlpha = 1;
-  if(!meteor && now > nextMeteor){
-    meteor = {x: W*(.25+Math.random()*.5), y: -20, vx: -(2.4+Math.random()*1.6), vy: 2.2+Math.random()*1.2, life: 1};
-    nextMeteor = now + 7000 + Math.random()*9000;
-  }
-  if(meteor){
-    meteor.x += meteor.vx; meteor.y += meteor.vy; meteor.life -= .008;
-    const tail = 26;
-    const g = cx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.vx*tail, meteor.y - meteor.vy*tail);
-    g.addColorStop(0, `rgba(232,196,124,${Math.max(meteor.life,0)*.9})`);
-    g.addColorStop(1, "rgba(232,196,124,0)");
-    cx.strokeStyle = g; cx.lineWidth = 1.2;
-    cx.beginPath();
-    cx.moveTo(meteor.x, meteor.y);
-    cx.lineTo(meteor.x - meteor.vx*tail, meteor.y - meteor.vy*tail);
-    cx.stroke();
-    if(meteor.life <= 0 || meteor.x < -60 || meteor.y > H+60) meteor = null;
-  }
-  requestAnimationFrame(draw);
-}
-requestAnimationFrame(draw);
 </script>
 </body>
 </html>
